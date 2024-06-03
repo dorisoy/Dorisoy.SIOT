@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="SIOT.Views.StatisticsPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:SIOT.Controls.Charts"
+             xmlns:controls="clr-namespace:SIOT.Controls"
+             xmlns:handlers="clr-namespace:SIOT.Handlers"
+             xmlns:helpers="clr-namespace:SIOT.Helpers"
+             xmlns:local="clr-namespace:SIOT"
+             xmlns:localization="clr-namespace:SIOT.Resources.Translations"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             xmlns:lvcore="clr-namespace:LiveChartsCore;assembly=LiveChartsCore"
+             xmlns:models="clr-namespace:SIOT.Models"
+             xmlns:templates="clr-namespace:SIOT.Views.Templates"
+             xmlns:viewmodels="clr-namespace:SIOT.ViewModels"
+             xmlns:views="clr-namespace:SIOT.Views"
+             Title="能耗分析">
+
+    <ContentPage.BindingContext>
+        <viewmodels:StatisticsViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <Grid Padding="20"
+              BackgroundColor="#f2f5fc"
+              RowDefinitions="*,*"
+              RowSpacing="0">
+
+            <Grid Grid.Row="0"
+                  Margin="0,0,0,10"
+                  ColumnDefinitions="2*, 2*"
+                  ColumnSpacing="10">
+
+                <Border Padding="10,5"
+                        BackgroundColor="#2566dc"
+                        StrokeShape="{RoundRectangle CornerRadius='20'}">
+                    <Grid ColumnDefinitions="40, *"
+                          ColumnSpacing="12">
+                        <Border Padding="5"
+                                BackgroundColor="#ffffff"
+                                HeightRequest="40"
+                                HorizontalOptions="Start"
+                                Stroke="Transparent"
+                                StrokeShape="{RoundRectangle CornerRadius='20'}"
+                                TranslationY="0"
+                                VerticalOptions="Center"
+                                WidthRequest="40">
+                            <Label FontFamily="MauiKitIcons"
+                                   FontSize="{OnIdiom Phone='20',
+                                     Tablet='25',
+                                     Desktop='30'}"
+                                   HorizontalOptions="CenterAndExpand"
+                                   HorizontalTextAlignment="Center"
+                                   Opacity="1"
+                                   Text="{x:Static views:MauiKitIcons.ArrowDownBox}"
+                                   TextColor="#2566dc"
+                                   VerticalOptions="CenterAndExpand" />
+                        </Border>
+
+                        <StackLayout Grid.Column="1"
+                                     Spacing="0"
+                                     VerticalOptions="Center">
+                            <Label FontAttributes="Bold"
+                                   FontSize="15"
+                                   Text="{Binding TotalIncome, StringFormat='{0:N2} m³'}"
+                                   TextColor="#ffffff" />
+                            <Label FontSize="14"
+                                   Text="总计用水"
+                                   TextColor="#f2f5fc" />
+                        </StackLayout>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Column="1"
+                        Padding="10,5"
+                        BackgroundColor="#ffffff"
+                        StrokeShape="{RoundRectangle CornerRadius='20'}">
+                    
+                    <Grid ColumnDefinitions="40, *"
+                          ColumnSpacing="12">
+                        <Border Padding="5"
+                                BackgroundColor="#2566dc"
+                                HeightRequest="40"
+                                HorizontalOptions="Start"
+                                Stroke="Transparent"
+                                StrokeShape="{RoundRectangle CornerRadius='20'}"
+                                TranslationY="0"
+                                VerticalOptions="Center"
+                                WidthRequest="40">
+                            <Label FontFamily="MauiKitIcons"
+                                   FontSize="{OnIdiom Phone='20',
+                                     Tablet='25',
+                                     Desktop='30'}"
+                                   HorizontalOptions="CenterAndExpand"
+                                   HorizontalTextAlignment="Center"
+                                   Opacity="1"
+                                   Text="{x:Static views:MauiKitIcons.ArrowUpBox}"
+                                   TextColor="#ffffff"
+                                   VerticalOptions="CenterAndExpand" />
+                        </Border>
+
+                        <StackLayout Grid.Column="1"
+                                     Spacing="0"
+                                     VerticalOptions="Center">
+                            <Label FontAttributes="Bold"
+                                   FontSize="15"
+                                   Text="{Binding TotalExpense, StringFormat='{0:N2} kW·h'}"
+                                   TextColor="{DynamicResource BaseTextColor}" />
+                            <Label FontSize="14"
+                                   Text="总计用电"
+                                   TextColor="{DynamicResource BaseLightTextColor}" />
+                        </StackLayout>
+                    </Grid>
+                    
+                </Border>
+            </Grid>
+
+            <StackLayout Grid.Row="1"
+                                 Spacing="0">
+
+                <HorizontalStackLayout VerticalOptions="Center">
+                    <Border WidthRequest="10"
+                             HeightRequest="18"
+                             Background="#2566dc"
+                             BackgroundColor="#2566dc"
+                             VerticalOptions="Center" Margin="0,-4,0,0"/>
+                    <Label FontAttributes="Bold"
+                           FontFamily="BoldFont"
+                           FontSize="18"
+                           Text="电量消耗"
+                           TextColor="{DynamicResource BaseTextColor}"
+                           Margin="5,10,0,10"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+
+                <Border Padding="5,5"
+                        BackgroundColor="#ffffff"
+                        StrokeShape="{RoundRectangle CornerRadius='20'}"
+                        HeightRequest="300">
+                    
+                    <!--<lvc:CartesianChart Series="{Binding LineSeries}"/>-->
+
+
+                    <!--<lvc:CartesianChart SyncContext="{Binding Sync}"
+                                        Series="{Binding Series}"
+                                        XAxes="{Binding XAxes}"
+                                        YAxes="{Binding YAxes}"
+                                        >
+                    </lvc:CartesianChart>-->
+
+                    <lvc:CartesianChart Series="{Binding ESeries}"
+                                        TooltipFindingStrategy="CompareOnlyX"
+                                        YAxes="{Binding EYAxes}">
+                    </lvc:CartesianChart>
+
+
+                </Border>
+
+                <HorizontalStackLayout VerticalOptions="Center">
+                    <Border WidthRequest="10"
+                            HeightRequest="18"
+                            Background="#2566dc"
+                            BackgroundColor="#2566dc"
+                            VerticalOptions="Center"
+                            Margin="0,-4,0,0" />
+                    <Label FontAttributes="Bold"
+                           FontFamily="BoldFont"
+                           FontSize="18"
+                           Text="水量消耗"
+                           TextColor="{DynamicResource BaseTextColor}"
+                           Margin="5,10,0,10"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <Border Padding="5,5"
+                        BackgroundColor="#ffffff"
+                        StrokeShape="{RoundRectangle CornerRadius='20'}"
+                        HeightRequest="300">
+                    <!--<lvc:PieChart HeightRequest="300"
+                                  AnimationsSpeed="00:00:00.300"
+                                  EasingFunction="{Binding Source={x:Static lvcore:EasingFunctions.Lineal}}"
+                                  IsVisible="True"
+                                  LegendPosition="Bottom"
+                                  LegendTextPaint="{Binding LegendTextPaint}"
+                                  LegendTextSize="13"
+                                  Series="{Binding ChartData}">
+                    </lvc:PieChart>-->
+
+                    <lvc:CartesianChart Series="{Binding Series}"
+                                        YAxes="{Binding YAxes}"
+                                        XAxes="{Binding XAxes}">
+                    </lvc:CartesianChart>
+                </Border>
+
+            </StackLayout>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

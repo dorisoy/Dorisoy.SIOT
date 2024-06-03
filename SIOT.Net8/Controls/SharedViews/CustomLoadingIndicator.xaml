@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Border
+    x:Class="SIOT.Controls.CustomLoadingIndicator"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SIOT.Controls"
+    x:Name="actIndicator"
+    Padding="0"
+    BackgroundColor="{DynamicResource PrimaryColor}"
+    HeightRequest="80"
+    HorizontalOptions="Start"
+    IsVisible="False"
+    Stroke="Transparent"
+    StrokeShape="{RoundRectangle CornerRadius=16}"
+    StrokeThickness="3"
+    WidthRequest="80">
+    <controls:RoundedCornerImage
+        BackgroundColor="{DynamicResource White}"
+        HeightRequest="50"
+        HorizontalOptions="Center"
+        Source="logo.png"
+        Stroke="Transparent"
+        StrokeShape="{RoundRectangle CornerRadius=50}"
+        VerticalOptions="Center"
+        WidthRequest="50" />
+</Border>
+

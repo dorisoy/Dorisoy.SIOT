@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Border
+    x:Class="SIOT.Controls.LoadingIndicator"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SIOT.Controls"
+    Padding="48,12"
+    BackgroundColor="#80000000"
+    IsVisible="False"
+    Stroke="Transparent">
+    <Border.StrokeShape>
+        <RoundRectangle CornerRadius="20" />
+    </Border.StrokeShape>
+    <VerticalStackLayout Spacing="6">
+        <ActivityIndicator
+            x:Name="actIndicator"
+            HeightRequest="44"
+            HorizontalOptions="Center"
+            IsRunning="False"
+            Scale="{OnPlatform iOS=1.3,
+                               Android=1.0}"
+            WidthRequest="44"
+            Color="{DynamicResource White}" />
+
+        <Label
+            x:Name="lblLoadingText"
+            FontSize="14"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            LineBreakMode="WordWrap"
+            TextColor="{DynamicResource PrimaryColor}" />
+    </VerticalStackLayout>
+</Border>
+

@@ -1,0 +1,594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ButtonAddCard" xml:space="preserve">
+    <value>Add card</value>
+  </data>
+  <data name="ButtonAlreadyRegistered" xml:space="preserve">
+    <value>ALREADY A USER? LOGIN NOW</value>
+  </data>
+  <data name="ButtonChange" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ButtonConfirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="ButtonContactUs" xml:space="preserve">
+    <value>CONTACT US</value>
+  </data>
+  <data name="ButtonContinue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="ButtonDarkTheme" xml:space="preserve">
+    <value>Dark Theme</value>
+  </data>
+  <data name="ButtonDownloadReceipt" xml:space="preserve">
+    <value>Download E-Receipt</value>
+  </data>
+  <data name="ButtonEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ButtonEditProfile" xml:space="preserve">
+    <value>Edit Profile</value>
+  </data>
+  <data name="ButtonFacebook" xml:space="preserve">
+    <value>FACEBOOK</value>
+  </data>
+  <data name="ButtonFinish" xml:space="preserve">
+    <value>FINISH</value>
+  </data>
+  <data name="ButtonFollow" xml:space="preserve">
+    <value>Follow</value>
+  </data>
+  <data name="ButtonGoogle" xml:space="preserve">
+    <value>GOOGLE</value>
+  </data>
+  <data name="ButtonLightTheme" xml:space="preserve">
+    <value>Light Theme</value>
+  </data>
+  <data name="ButtonLogin" xml:space="preserve">
+    <value>LOGIN</value>
+  </data>
+  <data name="ButtonNext" xml:space="preserve">
+    <value>NEXT</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ButtonSeeMore" xml:space="preserve">
+    <value>See More</value>
+  </data>
+  <data name="ButtonSend" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="ButtonSignin" xml:space="preserve">
+    <value>SIGN IN</value>
+  </data>
+  <data name="ButtonSignup" xml:space="preserve">
+    <value>SIGN UP</value>
+  </data>
+  <data name="ButtonSkip" xml:space="preserve">
+    <value>SKIP</value>
+  </data>
+  <data name="ButtonSubmit" xml:space="preserve">
+    <value>SUBMIT</value>
+  </data>
+  <data name="ButtonTakeTour" xml:space="preserve">
+    <value>EXPLORE NOW</value>
+  </data>
+  <data name="ButtonTwitter" xml:space="preserve">
+    <value>TWITTER</value>
+  </data>
+  <data name="ButtonViewAll" xml:space="preserve">
+    <value>View All</value>
+  </data>
+  <data name="ButtonViewReceipt" xml:space="preserve">
+    <value>View E-Receipt</value>
+  </data>
+  <data name="PageTitleAccount" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="PageTitleAllServices" xml:space="preserve">
+    <value>All Services</value>
+  </data>
+  <data name="PageTitleBillPayment" xml:space="preserve">
+    <value>Bill Payment</value>
+  </data>
+  <data name="PageTitleConfirmPayment" xml:space="preserve">
+    <value>Confirm Payment</value>
+  </data>
+  <data name="PageTitleEReceipt" xml:space="preserve">
+    <value>E-Receipt</value>
+  </data>
+  <data name="PageTitleFontIcon" xml:space="preserve">
+    <value>Icons</value>
+  </data>
+  <data name="PageTitleFontIconFont" xml:space="preserve">
+    <value>Font Icons</value>
+  </data>
+  <data name="PageTitleMobileTopup" xml:space="preserve">
+    <value>Mobile Topup</value>
+  </data>
+  <data name="PageTitleMyCard" xml:space="preserve">
+    <value>My Card</value>
+  </data>
+  <data name="PageTitlePaymentConfirm" xml:space="preserve">
+    <value>Payment Confirm</value>
+  </data>
+  <data name="PageTitleRequestPayment" xml:space="preserve">
+    <value>Request Payment</value>
+  </data>
+  <data name="PageTitleScanPay" xml:space="preserve">
+    <value>QR Services</value>
+  </data>
+  <data name="PageTitleStatistics" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="PageTitleTransferMoney" xml:space="preserve">
+    <value>Transfer Money</value>
+  </data>
+  <data name="StringAboutUs" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="StringAccountOption" xml:space="preserve">
+    <value>Account Options</value>
+  </data>
+  <data name="StringAddNewCard" xml:space="preserve">
+    <value>Add New Card</value>
+  </data>
+  <data name="StringAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="StringAllContact" xml:space="preserve">
+    <value>All Contacts</value>
+  </data>
+  <data name="StringAlreadyHaveAccount" xml:space="preserve">
+    <value>Already have an account?</value>
+  </data>
+  <data name="StringAlreadyRegistered" xml:space="preserve">
+    <value>Already a user? Login Now</value>
+  </data>
+  <data name="StringAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="StringAppName" xml:space="preserve">
+    <value>M-Wallet</value>
+  </data>
+  <data name="StringAppSettings" xml:space="preserve">
+    <value>App Settings</value>
+  </data>
+  <data name="StringAppWelcomeSubtitle" xml:space="preserve">
+    <value>Build your finance &amp; banking app in minutes</value>
+  </data>
+  <data name="StringAppWelcomeTitle" xml:space="preserve">
+    <value>Welcome to M-WALLET</value>
+  </data>
+  <data name="StringBalance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="StringCardExpiry" xml:space="preserve">
+    <value>Expire date</value>
+  </data>
+  <data name="StringCategory" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="StringChooseTheme" xml:space="preserve">
+    <value>Choose Theme</value>
+  </data>
+  <data name="StringCommingSoon" xml:space="preserve">
+    <value>Comming soon</value>
+  </data>
+  <data name="StringConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="StringCopyright" xml:space="preserve">
+    <value>MAUIKIT</value>
+  </data>
+  <data name="StringCreateNewPassword" xml:space="preserve">
+    <value>Create your new password</value>
+  </data>
+  <data name="StringCreatePassword" xml:space="preserve">
+    <value>Create password</value>
+  </data>
+  <data name="StringDarkmode" xml:space="preserve">
+    <value>Dark mode</value>
+  </data>
+  <data name="StringDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="StringDeleteAccount" xml:space="preserve">
+    <value>Delete Account</value>
+  </data>
+  <data name="StringDontHaveAccount" xml:space="preserve">
+    <value>Dont't have an account?</value>
+  </data>
+  <data name="StringDontReceiveCode" xml:space="preserve">
+    <value>Don't received code?</value>
+  </data>
+  <data name="StringEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="StringEnableLocation" xml:space="preserve">
+    <value>Enable Location</value>
+  </data>
+  <data name="StringEnterFullname" xml:space="preserve">
+    <value>Enter your full name</value>
+  </data>
+  <data name="StringEnterMessage" xml:space="preserve">
+    <value>Type your message...</value>
+  </data>
+  <data name="StringEnterPassword" xml:space="preserve">
+    <value>Enter your password</value>
+  </data>
+  <data name="StringEnterReceivedCode" xml:space="preserve">
+    <value>The confirm code was sent via email</value>
+  </data>
+  <data name="StringEnterUsername" xml:space="preserve">
+    <value>Enter your email or phone number</value>
+  </data>
+  <data name="StringEnterYourEmail" xml:space="preserve">
+    <value>Enter your email</value>
+  </data>
+  <data name="StringFacebook" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="StringFaceIdLogin" xml:space="preserve">
+    <value>Login with FaceID</value>
+  </data>
+  <data name="StringFontsCount" xml:space="preserve">
+    <value>Fonts</value>
+  </data>
+  <data name="StringForgotPassword" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="StringFullname" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="StringGoogle" xml:space="preserve">
+    <value>Google</value>
+  </data>
+  <data name="StringGridItemTappedMessage" xml:space="preserve">
+    <value>Lorem ipsum dolot sit amet</value>
+  </data>
+  <data name="StringHome" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="StringHours" xml:space="preserve">
+    <value>Hours</value>
+  </data>
+  <data name="StringIconsCount" xml:space="preserve">
+    <value>icons</value>
+  </data>
+  <data name="StringInputAddress1" xml:space="preserve">
+    <value>Address  line 1</value>
+  </data>
+  <data name="StringInputAddress2" xml:space="preserve">
+    <value>Address line 2</value>
+  </data>
+  <data name="StringInputCardCvv" xml:space="preserve">
+    <value>CVV</value>
+  </data>
+  <data name="StringInputCardHolder" xml:space="preserve">
+    <value>Card holder name</value>
+  </data>
+  <data name="StringInputCardNumber" xml:space="preserve">
+    <value>Card Number</value>
+  </data>
+  <data name="StringInputCity" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="StringInputCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="StringInputDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="StringInputFirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="StringInputLastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="StringInputPhoneNumber" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="StringInputState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="StringInputZip" xml:space="preserve">
+    <value>ZIP code</value>
+  </data>
+  <data name="StringIsRTL" xml:space="preserve">
+    <value>Is RTL</value>
+  </data>
+  <data name="StringLoginOrRegister" xml:space="preserve">
+    <value>Login or register using your email and password</value>
+  </data>
+  <data name="StringLoginWith" xml:space="preserve">
+    <value>OR LOGIN WITH</value>
+  </data>
+  <data name="StringLogOut" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="StringMessageFeatureCommingSoon" xml:space="preserve">
+    <value>Comming soon...</value>
+  </data>
+  <data name="StringMobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="StringName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="StringNewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="StringNote" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="StringOr" xml:space="preserve">
+    <value>or continue with</value>
+  </data>
+  <data name="StringPassword" xml:space="preserve">
+    <value>Enter your password</value>
+  </data>
+  <data name="StringPhoneNumber" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="StringPhoneNumberInput" xml:space="preserve">
+    <value>Enter phone number</value>
+  </data>
+  <data name="StringPickColor" xml:space="preserve">
+    <value>Pick Color</value>
+  </data>
+  <data name="StringPrivacyPolicy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="StringQrScannerHeader" xml:space="preserve">
+    <value>Scan QR code to pay, transfer or withdraw</value>
+  </data>
+  <data name="StringRecentTransaction" xml:space="preserve">
+    <value>Recent Transactions</value>
+  </data>
+  <data name="StringRegisterAnAccount" xml:space="preserve">
+    <value>Lorem ipsum dolot sit amet</value>
+  </data>
+  <data name="StringRegisterNow" xml:space="preserve">
+    <value>Register now</value>
+  </data>
+  <data name="StringRegisterNowSubtitle" xml:space="preserve">
+    <value>Lorem ipsum dolot sit amet</value>
+  </data>
+  <data name="StringRememberLogin" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="StringResend" xml:space="preserve">
+    <value>Resend</value>
+  </data>
+  <data name="StringSchedule" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="StringSearch" xml:space="preserve">
+    <value>Search here...</value>
+  </data>
+  <data name="StringSearchContact" xml:space="preserve">
+    <value>Search name or number</value>
+  </data>
+  <data name="StringSearchIcon" xml:space="preserve">
+    <value>Search icon</value>
+  </data>
+  <data name="StringSelectCategory" xml:space="preserve">
+    <value>Select Category</value>
+  </data>
+  <data name="StringSelectTime" xml:space="preserve">
+    <value>Select time</value>
+  </data>
+  <data name="StringSetDefaultCard" xml:space="preserve">
+    <value>Set as default</value>
+  </data>
+  <data name="StringShare" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="StringSignin" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="StringSignup" xml:space="preserve">
+    <value>Sign Up</value>
+  </data>
+  <data name="StringSMS" xml:space="preserve">
+    <value>SMS</value>
+  </data>
+  <data name="StringStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="StringSupportCenter" xml:space="preserve">
+    <value>Support Center</value>
+  </data>
+  <data name="StringTime" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="StringTransactionID" xml:space="preserve">
+    <value>Transaction ID</value>
+  </data>
+  <data name="StringTransactions" xml:space="preserve">
+    <value>Transactions</value>
+  </data>
+  <data name="StringTransactionTime" xml:space="preserve">
+    <value>Transaction Time</value>
+  </data>
+  <data name="StringTransferAmount" xml:space="preserve">
+    <value>Transfer Amount</value>
+  </data>
+  <data name="StringTransferTo" xml:space="preserve">
+    <value>Transfer to</value>
+  </data>
+  <data name="StringTypeEmailReceiveCode" xml:space="preserve">
+    <value>Type your email to receive verification code.</value>
+  </data>
+  <data name="StringUpdateProfile" xml:space="preserve">
+    <value>Update Profile</value>
+  </data>
+  <data name="StringUsername" xml:space="preserve">
+    <value>Email or phone number</value>
+  </data>
+  <data name="StringUseYourCredentials" xml:space="preserve">
+    <value>Use your credentials to login.</value>
+  </data>
+  <data name="StringVerifyCode" xml:space="preserve">
+    <value>Verify Code</value>
+  </data>
+  <data name="StringViewAll" xml:space="preserve">
+    <value>View All</value>
+  </data>
+  <data name="StringWalkthroughSubtitleStep1" xml:space="preserve">
+    <value>Lorem ipsum dolot sit amet, 
+consectetur adipiscing elit.</value>
+  </data>
+  <data name="StringWalkthroughSubtitleStep2" xml:space="preserve">
+    <value>Lorem ipsum dolot sit amet, 
+consectetur adipiscing elit.</value>
+  </data>
+  <data name="StringWalkthroughSubtitleStep3" xml:space="preserve">
+    <value>Lorem ipsum dolot sit amet, 
+consectetur adipiscing elit.</value>
+  </data>
+  <data name="StringWalkthroughTitleStep1" xml:space="preserve">
+    <value>The best app for
+finance, banking &amp;
+e-wallet today</value>
+  </data>
+  <data name="StringWalkthroughTitleStep2" xml:space="preserve">
+    <value>Manage finances
+easily with safe
+&amp; secure payments</value>
+  </data>
+  <data name="StringWalkthroughTitleStep3" xml:space="preserve">
+    <value>Have an amazing 
+experience with
+M-Wallet right now!</value>
+  </data>
+  <data name="StringWelcomeToMauiKit" xml:space="preserve">
+    <value>Welcome to M-WALLET</value>
+  </data>
+</root>

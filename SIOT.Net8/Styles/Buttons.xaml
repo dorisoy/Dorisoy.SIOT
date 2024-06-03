@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="SIOT.Buttons"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style TargetType="Button">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="RegularFont" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Padding" Value="14,10" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{DynamicResource BaseLightTextColor}" />
+                            <Setter Property="BackgroundColor" Value="{DynamicResource DisabledColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RoundedButtonStyle" TargetType="Button">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="HeightRequest" Value="44" />
+    </Style>
+
+    <!--  OUTLINE BUTTONS  -->
+    <Style x:Key="OutlineInverseButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="BorderColor" Value="{DynamicResource InverseTextColor}" />
+        <Setter Property="TextColor" Value="{DynamicResource InverseTextColor}" />
+    </Style>
+
+    <Style x:Key="OutlineButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="BorderColor" Value="{DynamicResource BaseTextColor}" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+    </Style>
+
+    <Style
+        x:Key="PrimaryActionOutlineButtonStyle"
+        BasedOn="{StaticResource OutlineButtonStyle}"
+        TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource PrimaryColor}" />
+    </Style>
+
+    <Style
+        x:Key="SecondaryActionOutlineButtonStyle"
+        BasedOn="{StaticResource OutlineButtonStyle}"
+        TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource SecondaryColor}" />
+    </Style>
+
+    <Style
+        x:Key="SaveOutlineButtonStyle"
+        BasedOn="{StaticResource OutlineButtonStyle}"
+        TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource SaveButtonColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource SaveButtonColor}" />
+    </Style>
+
+    <Style
+        x:Key="DeleteOutlineButtonStyle"
+        BasedOn="{StaticResource OutlineButtonStyle}"
+        TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource DeleteButtonColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource DeleteButtonColor}" />
+    </Style>
+
+
+    <!--  FILLED BUTTONS  -->
+    <Style
+        x:Key="PrimaryActionButtonStyle"
+        BasedOn="{StaticResource RoundedButtonStyle}"
+        TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="TextColor" Value="{DynamicResource OverImageTextColor}" />
+    </Style>
+
+    <Style
+        x:Key="SecondaryActionButtonStyle"
+        BasedOn="{StaticResource RoundedButtonStyle}"
+        TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource ComplementColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource ComplementColor}" />
+        <Setter Property="TextColor" Value="{DynamicResource OverImageTextColor}" />
+    </Style>
+
+    <Style
+        x:Key="TransparentButtonStyle"
+        BasedOn="{StaticResource RoundedButtonStyle}"
+        TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{DynamicResource InverseTextColor}" />
+    </Style>
+
+    <Style
+        x:Key="GoogleButtonStyle"
+        BasedOn="{StaticResource RoundedButtonStyle}"
+        TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource BasePageColor}" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+        <Setter Property="BorderColor" Value="Transparent" />
+    </Style>
+
+    <Style
+        x:Key="TranslucidButtonStyle"
+        BasedOn="{StaticResource RoundedButtonStyle}"
+        TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource TranslucidButtonColor}" />
+        <Setter Property="TextColor" Value="{DynamicResource InverseTextColor}" />
+        <Setter Property="HeightRequest" Value="{DynamicResource BaseButtonHeight}" />
+        <Setter Property="BorderColor" Value="Transparent" />
+    </Style>
+
+    <!--  CIRCLE BUTTONS FLAT  -->
+    <Style x:Key="CircleActionButtonFlatStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="TextColor" Value="{DynamicResource CircleActionButtonFlatIconColor}" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="CornerRadius" Value="22" />
+        <Setter Property="HeightRequest" Value="44" />
+        <Setter Property="WidthRequest" Value="44" />
+    </Style>
+
+    <Style x:Key="CircleButtonFlatStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}" />
+        <Setter Property="BorderColor" Value="{DynamicResource DefaultBorder}" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="CornerRadius" Value="22" />
+        <Setter Property="HeightRequest" Value="44" />
+        <Setter Property="WidthRequest" Value="44" />
+    </Style>
+
+    <Style x:Key="CircleButtonPrimaryStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="TextColor" Value="{DynamicResource White}" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="CornerRadius" Value="22" />
+        <Setter Property="HeightRequest" Value="44" />
+        <Setter Property="WidthRequest" Value="44" />
+    </Style>
+
+    <Style x:Key="ButtonFlatStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}" />
+        <Setter Property="BorderColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="HeightRequest" Value="44" />
+    </Style>
+
+    <Style x:Key="ButtonPrimaryStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="TextColor" Value="{DynamicResource White}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="HeightRequest" Value="44" />
+    </Style>
+
+    <Style x:Key="ButtonPrimaryOutlineStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource BasePageColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="HeightRequest" Value="44" />
+    </Style>
+
+</ResourceDictionary>

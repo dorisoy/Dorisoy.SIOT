@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<shell:SimpleShell
+    x:Class="SIOT.MainAppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SimpleToolkit.SimpleShell.Controls;assembly=SimpleToolkit.SimpleShell.Controls"
+    xmlns:core="clr-namespace:SimpleToolkit.Core;assembly=SimpleToolkit.Core"
+    xmlns:local="clr-namespace:SIOT"
+    xmlns:pages="clr-namespace:SIOT.Views.Pages"
+    xmlns:shell="clr-namespace:SimpleToolkit.SimpleShell;assembly=SimpleToolkit.SimpleShell"
+    xmlns:views="clr-namespace:SIOT.Views"
+    x:Name="mainAppShell">
+    <shell:SimpleShell.Resources>
+        <Style x:Key="MaterialTabbar" TargetType="controls:TabBar">
+            <Setter Property="IconColor" Value="#1d192b" />
+            <Setter Property="IconSelectionColor" Value="#1d192b" />
+            <Setter Property="TextColor" Value="#1d192b" />
+            <Setter Property="TextSelectionColor" Value="#1d192b" />
+            <Setter Property="Background" Value="#ffffff" />
+            <Setter Property="PrimaryBrush" Value="#30377DFF" />
+            <Setter Property="DesignLanguage" Value="Material3" />
+        </Style>
+
+        <Style x:Key="CupertinoTabbar" TargetType="controls:TabBar">
+            <Setter Property="IconColor" Value="#6E6E6E" />
+            <Setter Property="IconSelectionColor" Value="#0279fc" />
+            <Setter Property="TextColor" Value="#6E6E6E" />
+            <Setter Property="TextSelectionColor" Value="#0279fc" />
+            <Setter Property="Background" Value="#ffffff" />
+            <Setter Property="DesignLanguage" Value="Cupertino" />
+        </Style>
+
+        <Style x:Key="FluentTabbar" TargetType="controls:TabBar">
+            <Setter Property="IconColor" Value="#1d192b" />
+            <Setter Property="IconSelectionColor" Value="#1d192b" />
+            <Setter Property="TextColor" Value="#1d192b" />
+            <Setter Property="TextSelectionColor" Value="#1d192b" />
+            <Setter Property="Background" Value="#f3f3f3" />
+            <Setter Property="PrimaryBrush" Value="#3b4c73" />
+            <Setter Property="DesignLanguage" Value="Fluent" />
+        </Style>
+
+        <Style x:Key="AppBarIcon" TargetType="core:Icon">
+            <Setter Property="TintColor"
+                    Value="#2566dc" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="HeightRequest" Value="22" />
+            <Setter Property="WidthRequest" Value="22" />
+        </Style>
+    </shell:SimpleShell.Resources>
+
+    <!--  Shell Content  -->
+    <shell:SimpleShell.Content>
+        <Grid
+            x:Name="rootContainer"
+            BackgroundColor="{DynamicResource BaseTabbedPageColor}"
+            RowDefinitions="70, Auto, *">
+            <Grid
+                x:Name="appBar"
+                Grid.Row="0"
+                Padding="12,10"
+                ColumnDefinitions="Auto, *, Auto, Auto, Auto"
+                ColumnSpacing="10">
+
+                <!--  Back Button  -->
+                <core:ContentButton
+                    x:Name="backButton"
+                    Background="Transparent"
+                    Command="{Binding BackCommand, Source={x:Reference mainAppShell}}"
+                    VerticalOptions="Center">
+                    <core:Icon Style="{StaticResource AppBarIcon}">
+                        <core:Icon.Source>
+                            <FontImageSource
+                                FontFamily="FontAwesomeSolid"
+                                Glyph="&#xf053;"
+                                Size="44"
+                                Color="{DynamicResource BaseIconColor}" />
+                        </core:Icon.Source>
+                    </core:Icon>
+                </core:ContentButton>
+
+                <!--  Page Title  -->
+                <Label
+                    Grid.Column="0"
+                    Grid.ColumnSpan="5"
+                    Margin="20,0"
+                    FontAttributes="Bold"
+                    FontSize="19"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Source={x:Reference mainAppShell}, Path=CurrentPage.Title}"
+                    TextColor="{DynamicResource BaseIconColor}"
+                    VerticalOptions="Center" />
+
+                <!--<core:ContentButton
+                    x:Name="designButton"
+                    Grid.Column="3"
+                    Background="Transparent"
+                    Clicked="ShowPopoverButtonClicked"
+                    VerticalOptions="Center">
+                    <core:Popover.AttachedPopover>
+                        <controls:ListPopover
+                            x:Name="designLanguagesListPopover"
+                            ItemSelected="DesignLanguagesListPopoverItemSelected"
+                            MaximumWidthRequest="280"
+                            MinimumWidthRequest="112" />
+                    </core:Popover.AttachedPopover>
+
+                    <core:Icon Style="{StaticResource AppBarIcon}">
+                        <core:Icon.Source>
+                            <FontImageSource
+                                FontFamily="FontAwesomeSolid"
+                                Glyph="&#xf53f;"
+                                Size="44"
+                                             Color="#2566dc" />
+                        </core:Icon.Source>
+                    </core:Icon>
+                </core:ContentButton>-->
+
+                <core:ContentButton
+                    x:Name="toolbarItemsButton"
+                    Grid.Column="4"
+                    Background="Transparent"
+                    Clicked="ShowPopoverButtonClicked"
+                    IsVisible="False"
+                    VerticalOptions="Center">
+                    <core:Popover.AttachedPopover>
+                        <controls:ListPopover x:Name="toolbarItemsPopover" Items="{Binding Source={x:Reference mainAppShell}, Path=CurrentPage.ToolbarItems}" />
+                    </core:Popover.AttachedPopover>
+
+                    <core:Icon Style="{StaticResource AppBarIcon}">
+                        <core:Icon.Source>
+                            <FontImageSource
+                                FontFamily="MauiKitIcons"
+                                Glyph="{x:Static views:MauiKitIcons.Settings}"
+                                Size="46"
+                                             Color="#2566dc" />
+                        </core:Icon.Source>
+                    </core:Icon>
+                </core:ContentButton>
+
+                <!--  扫码  -->
+                <core:ContentButton
+                    x:Name="themeButton"
+                    Grid.Column="4"
+                    Background="Transparent"
+                    Clicked="OnSettingsToolbarItemClicked"
+                    VerticalOptions="Center">
+                    <core:Icon Style="{StaticResource AppBarIcon}">
+                        <core:Icon.Source>
+                            <FontImageSource
+                                FontFamily="MauiKitIcons"
+                                             Glyph="{x:Static views:MauiKitIcons.QrcodeScan}"
+                                Size="46"
+                                             Color="#2566dc" />
+                        </core:Icon.Source>
+                    </core:Icon>
+                </core:ContentButton>
+            </Grid>
+
+            <!--  Main Content  -->
+            <Border
+                Grid.Row="2"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 20,20,0,0"
+                StrokeThickness="0">
+                <shell:SimpleNavigationHost />
+            </Border>
+
+        </Grid>
+    </shell:SimpleShell.Content>
+
+    <shell:SimpleShell.RootPageContainer>
+        <Grid RowDefinitions="*, Auto">
+
+            <shell:SimpleNavigationHost />
+
+            <!--  Bottom Tabbar  -->
+            <controls:TabBar
+                x:Name="tabBar"
+                Grid.Row="1"
+                Padding="0,0,0,0"
+                BackgroundColor="{DynamicResource BaseTabbedPageColor}"
+                HorizontalOptions="FillAndExpand"
+                IsScrollable="False"
+                ItemSelected="TabBarItemSelected"
+                Items="{Binding Source={x:Reference mainAppShell}, Path=ShellSections}"
+                ItemsAlignment="Center"
+                SelectedItem="{Binding Source={x:Reference mainAppShell}, Path=CurrentShellSection}"
+                Style="{StaticResource MaterialTabbar}" />
+        </Grid>
+    </shell:SimpleShell.RootPageContainer>
+
+    <!--  Title  -->
+    <Shell.TitleView>
+        <HorizontalStackLayout Margin="12,0" Spacing="10">
+            <Button Clicked="BackButtonClicked"
+                    Text="Back"
+                    VerticalOptions="Center" />
+            <Label Text="{Binding Source={x:Reference mainAppShell}, Path=CurrentPage.Title}" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+
+    <!--<Shell.SearchHandler>
+        <SearchHandler Placeholder="搜索..." />
+    </Shell.SearchHandler>-->
+
+    <!--  Shell Items  -->
+    <Tab Title="首页"
+         controls:SimpleShellIcon.SelectedIcon="home_filled.png"
+         Icon="home_empty.png">
+        <ShellContent Title="首页"
+                      controls:SimpleShellIcon.SelectedIcon="home_filled.png"
+                      ContentTemplate="{DataTemplate views:HomePage}"
+                      Icon="home_empty.png"
+                      Route="HomePage" />
+    </Tab>
+
+    <Tab Title="设备"
+         controls:SimpleShellIcon.SelectedIcon="action_filled.png"
+         Icon="action_empty.png">
+        <ShellContent Title="设备"
+                      controls:SimpleShellIcon.SelectedIcon="action_filled.png"
+                      ContentTemplate="{DataTemplate views:BillPaymentPage}"
+                      Icon="action_empty.png"
+                      Route="BillPaymentPage" />
+    </Tab>
+    
+    <Tab
+        Title="分析"
+         controls:SimpleShellIcon.SelectedIcon="form_filled.png"
+         Icon="form_empty.png">
+        <ShellContent Title="分析"
+                      controls:SimpleShellIcon.SelectedIcon="form_filled.png"
+            ContentTemplate="{DataTemplate views:StatisticsPage}"
+                      Icon="form_empty.png"
+            Route="StatisticsPage" />
+    </Tab>
+
+    <Tab
+        Title="配置"
+        controls:SimpleShellIcon.SelectedIcon="case_filled.png"
+        Icon="case_empty.png">
+        <ShellContent Title="Tab"
+                      controls:SimpleShellIcon.SelectedIcon="case_filled.png"
+            ContentTemplate="{DataTemplate views:AccountPage}"
+                      Icon="case_empty.png"
+            Route="AccountPage" />
+    </Tab>
+
+
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup x:Name="SimplePageTypeStates">
+            <VisualState x:Name="SimplePageTypeState.RegisteredPage">
+                <VisualState.Setters>
+                    <Setter TargetName="backButton" Property="Button.IsVisible" Value="true" />
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="SimplePageTypeState.RootPage">
+                <VisualState.Setters>
+                    <Setter TargetName="backButton" Property="Button.IsVisible" Value="false" />
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+        <VisualStateGroup x:Name="DesignLanguage">
+            <VisualState x:Name="Material3">
+                <VisualState.Setters>
+                    <Setter TargetName="tabBar" Property="View.Style" Value="{StaticResource MaterialTabbar}" />
+
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.IconColor" Value="#1d192b" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.TextColor" Value="#1d192b" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.Background" Value="#ffffff" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.DesignLanguage" Value="Material3" />
+
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.IconColor" Value="#1d192b" />
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.TextColor" Value="#1d192b" />
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.Background" Value="#ffffff" />
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.DesignLanguage" Value="Material3" />
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="Cupertino">
+                <VisualState.Setters>
+                    <Setter TargetName="tabBar" Property="View.Style" Value="{StaticResource CupertinoTabbar}" />
+
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.IconColor" Value="Black" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.TextColor" Value="Black" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.Background" Value="#ffffff" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.IconSelectionColor" Value="#0279fc" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.TextSelectionColor" Value="#0279fc" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.Background" Value="#ffffff" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.DesignLanguage" Value="Cupertino" />
+
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.IconColor" Value="Black" />
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.TextColor" Value="Black" />
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.Background" Value="#ffffff" />
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.DesignLanguage" Value="Cupertino" />
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="Fluent">
+                <VisualState.Setters>
+                    <Setter TargetName="tabBar" Property="View.Style" Value="{StaticResource FluentTabbar}" />
+
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.IconColor" Value="#1d192b" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.TextColor" Value="#1d192b" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.Background" Value="#f3f3f3" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.SelectionBrush" Value="#3b4c73" />
+                    <Setter TargetName="designLanguagesListPopover" Property="controls:ListPopover.DesignLanguage" Value="Fluent" />
+
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.IconColor" Value="#1d192b" />
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.TextColor" Value="#1d192b" />
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.Background" Value="#f3f3f3" />
+                    <Setter TargetName="toolbarItemsPopover" Property="controls:ListPopover.DesignLanguage" Value="Fluent" />
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+</shell:SimpleShell>

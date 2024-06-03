@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SIOT.Views.BasePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SIOT.Controls"
+    Title="">
+    <ScrollView VerticalScrollBarVisibility="Default">
+        <Grid RowDefinitions="*,Auto">
+
+            <!--  Grid to contain Page Content  -->
+            <Grid x:Name="PageContentGrid" IgnoreSafeArea="True" />
+
+            <controls:SimpleLoadingIndicator Grid.RowSpan="2" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

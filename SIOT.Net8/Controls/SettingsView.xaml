@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SIOT.Controls.SettingsView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:SIOT.Views"
+    IsVisible="False">
+
+    <ContentView.Resources>
+        <Style TargetType="Border">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="White" />
+                                <Setter Property="Stroke" Value="White" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="White" />
+                                <Setter Property="Stroke" Value="{Binding Color}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentView.Resources>
+    <Grid>
+        <!--  Semi transparent view  -->
+        <BoxView
+            x:Name="ShadowView"
+            IsVisible="False"
+            Opacity="0.8"
+            Color="Gray">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CloseSettings" />
+            </BoxView.GestureRecognizers>
+        </BoxView>
+
+        <Border
+            x:Name="MainContent"
+            BackgroundColor="White"
+            Opacity="0"
+            TranslationY="300"
+            VerticalOptions="EndAndExpand">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="18,18,0,0" />
+            </Border.StrokeShape>
+            <Grid RowDefinitions="30, 20, Auto, 44, Auto">
+                <!--<Frame
+                    Grid.Row="0"
+                    Margin="0,-14,0,0"
+                    Padding="0"
+                    BackgroundColor="White"
+                    CornerRadius="18"
+                    HasShadow="False" />-->
+
+                <StackLayout
+                    Grid.Row="1"
+                    Margin="0,-20,0,0"
+                    Padding="0"
+                    HorizontalOptions="Fill"
+                    Orientation="Horizontal"
+                    Spacing="0">
+
+                    <Label
+                        Margin="15,0,0,0"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Start"
+                        Text="Settings"
+                        TextColor="{DynamicResource Black}"
+                        VerticalOptions="Center" />
+
+                    <!--  Close Icon  -->
+                    <Border
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="Transparent"
+                        HeightRequest="40"
+                        HorizontalOptions="EndAndExpand"
+                        StrokeThickness="0"
+                        TranslationY="-5"
+                        VerticalOptions="Start"
+                        WidthRequest="40">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClose_Tapped" />
+                        </Border.GestureRecognizers>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <Image
+                            HeightRequest="25"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+                            <Image.Source>
+                                <FontImageSource
+                                    FontFamily="IonIcons"
+                                    Glyph="{x:Static views:IonIcons.AndroidClose}"
+                                    Size="25"
+                                    Color="{DynamicResource BaseTextColor}" />
+                            </Image.Source>
+                        </Image>
+                    </Border>
+
+                </StackLayout>
+
+                <Grid
+                    Grid.Row="2"
+                    Margin="25"
+                    ColumnDefinitions="*, *"
+                    ColumnSpacing="12">
+                    <Button
+                        x:Name="lightThemeButton"
+                        BackgroundColor="{DynamicResource PrimaryColor}"
+                        Clicked="OnSettingLightTheme_Clicked"
+                        CornerRadius="10"
+                        FontAttributes="Bold"
+                        HeightRequest="44"
+                        Text="Light Theme"
+                        TextColor="{DynamicResource White}" />
+
+                    <Button
+                        x:Name="darkThemeButton"
+                        Grid.Column="1"
+                        BackgroundColor="{DynamicResource Gray600}"
+                        Clicked="OnSettingDarkTheme_Clicked"
+                        CornerRadius="10"
+                        FontAttributes="Bold"
+                        HeightRequest="44"
+                        Text="Dark Theme"
+                        TextColor="{DynamicResource Black}" />
+                </Grid>
+
+                <Label
+                    Grid.Row="3"
+                    Margin="20,7,0,0"
+                    FontSize="15"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    Text="Pick your Color"
+                    TextColor="{DynamicResource BaseTextColor}" />
+
+                <CollectionView
+                    x:Name="colorPaletteCollectionView"
+                    Grid.Row="4"
+                    Margin="20,10,20,20"
+                    HorizontalOptions="Center"
+                    SelectedItem="{Binding SelectedPrimaryColorItem}"
+                    SelectionChanged="colorPaletteCollectionView_SelectionChanged"
+                    SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                Padding="5"
+                                HeightRequest="40"
+                                StrokeThickness="2"
+                                WidthRequest="45">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <RoundRectangle
+                                    CornerRadius="8"
+                                    Fill="{Binding Color}"
+                                    HeightRequest="30"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    WidthRequest="35" />
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentView>

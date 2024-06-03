@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="SIOT.DarkTheme"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="PrimaryColor">#3E94FF</Color>
+    <Color x:Key="PrimaryDarkColor">#2A89FF</Color>
+    <Color x:Key="PrimaryDarkenColor">#0B78FF</Color>
+    <Color x:Key="PrimaryLighterColor">#71B0FF</Color>
+    <Color x:Key="PrimaryGradient">#3E65FF</Color>
+    <Color x:Key="PrimaryLight">#A4CDFF</Color>
+    <Color x:Key="SecondaryColor">#9683FC</Color>
+    <Color x:Key="SecondaryGradient">#9683FC</Color>
+    <Color x:Key="AccentColor">#FFE88F1A</Color>
+
+    <Color x:Key="Green">#7ED321</Color>
+    <Color x:Key="Red">#FF4A4A</Color>
+    <Color x:Key="Orange">#FF844A</Color>
+    <Color x:Key="Blue">#4ACAFF</Color>
+    <Color x:Key="HyperLink">#3EAFFF</Color>
+
+    <Color x:Key="GrayBg">#14181D</Color>
+    <Color x:Key="Black">#000000</Color>
+    <Color x:Key="White">#ffffff</Color>
+    <Color x:Key="GrayShadowColor">#222831</Color>
+    <Color x:Key="GrayShadowBackgroundColor">#14181D</Color>
+
+    <FileImageSource x:Key="ThemeSettingIcon">ic_settings_dark.png</FileImageSource>
+    <FileImageSource x:Key="RtlIcon">ic_rtl_dark.png</FileImageSource>
+    <FileImageSource x:Key="MenuIcon">ic_menu_dark.png</FileImageSource>
+
+    <Color x:Key="BaseButtonBorderColor">Transparent</Color>
+
+    <Color x:Key="NavigationBarBackgroundColor">#222831</Color>
+    <Color x:Key="NavigationBarTextColor">#EBEDEF</Color>
+    <Color x:Key="NavigationBarIconColor">#EBEDEF</Color>
+    <Color x:Key="MainMenuOverlayBackgroundColor">#22F1F3F5</Color>
+
+    <!--  DIALOGS & POPUPS  -->
+    <x:Double x:Key="DialogsCornerRadius">4</x:Double>
+    <x:Int32 x:Key="DialogsButtonCornerRadius">16</x:Int32>
+    <x:Double x:Key="DialogsButtonWidthRequest">126</x:Double>
+    <x:Double x:Key="DialogsButtonHeightRequest">32</x:Double>
+    <Thickness x:Key="DialogsButtonMargin">5,0</Thickness>
+    <Color x:Key="DialogsShimBackgroundColor">#CC000000</Color>
+    <Color x:Key="CustomActionSheetShimBackgroundColor">#CC000000</Color>
+    <Color x:Key="CustomActionSheetBackgroundColor">#F1F3F5</Color>
+    <Color x:Key="CustomActionSheetTextColor">#666666</Color>
+
+    <!--  CIRCLE ACTION BUTTON FLAT  -->
+    <Color x:Key="CircleActionButtonFlatBackgroundColor">#39CFE2</Color>
+    <Color x:Key="CircleActionButtonFlatIconColor">White</Color>
+    <Color x:Key="CircleActionButtonFlatBorderColor">Transparent</Color>
+    <Color x:Key="CircleActionButtonFlatTextColor">White</Color>
+
+    <!--  GENERAL COLORS  -->
+    <Color x:Key="InverseTextColor">White</Color>
+    <Color x:Key="BrandColor">#1A73E8</Color>
+    <Color x:Key="BrandNameColor">#FFFFFF</Color>
+    <Color x:Key="BaseTextColor">#EBEDEF</Color>
+    <Color x:Key="BaseIconColor">#000634</Color>
+    <Color x:Key="BaseLightTextColor">#C8C8D4</Color>
+    <Color x:Key="OverImageTextColor">#FFFFFF</Color>
+    <OnPlatform
+        x:Key="OverImageHighlightedColor"
+        x:TypeArguments="Color"
+        Default="{StaticResource SecondaryColor}" />
+
+    <Color x:Key="BasePageColor">#222831</Color>
+    <Color x:Key="BaseTabbedPageColor">#FAFAFA</Color>
+    <Color x:Key="MainWrapperBackgroundColor">#14181D</Color>
+
+    <!--  COMPLEMENT COLORS  -->
+    <Color x:Key="ComplementColor">#39CFE2</Color>
+    <Color x:Key="TranslucidBlack">#55000000</Color>
+    <Color x:Key="TranslucidWhite">#11ffffff</Color>
+
+    <!--  INDICATOR COLORS  -->
+    <Color x:Key="OkColor">#22C064</Color>
+    <Color x:Key="ErrorColor">#FF392B</Color>
+    <Color x:Key="WarningColor">#FFC107</Color>
+    <Color x:Key="NotificationColor">#1274D1</Color>
+    <Color x:Key="DisabledColor">#BBBBBB</Color>
+
+    <!--  BUTTONS & ENTRY COLORS  -->
+    <Color x:Key="PrimaryActionButtonStartColor">#39CFE2</Color>
+    <Color x:Key="PrimaryActionButtonEndColor">#1646AA</Color>
+
+    <Color x:Key="SaveButtonColor">#22C064</Color>
+    <Color x:Key="DeleteButtonColor">#EB505C</Color>
+
+    <Color x:Key="TranslucidButtonColor">#33FFFFFF</Color>
+
+    <!--  ENTRIES AND EDITORS COMMON PROPERTIES  -->
+    <Color x:Key="PlaceholderColor">#6E6E6E</Color>
+    <Color x:Key="EntryAndEditorsBackgroundColor">#222831</Color>
+    <Color x:Key="EntryAndEditorsBorderColor">#222831</Color>
+    <x:Single x:Key="EntryAndEditorsBorderWidth">1</x:Single>
+    <OnPlatform x:Key="EntryAndEditorsHorizontalPadding" x:TypeArguments="x:Single">
+        <On Platform="iOS" Value="12" />
+        <On Platform="Android" Value="30" />
+    </OnPlatform>
+
+    <!--  ENTRIES PROPERTIES  -->
+    <x:Double x:Key="EntryHeightRequest">44</x:Double>
+    <x:Single x:Key="EntryBorderCornerRadius">22</x:Single>
+
+    <!--  EDITORS PROPERTIES  -->
+    <x:Double x:Key="EditorHeightRequest">100</x:Double>
+    <x:Double x:Key="EditorFontSize">14</x:Double>
+    <x:Single x:Key="EditorBorderCornerRadius">11</x:Single>
+
+    <!--  MAIN MENU COLORS  -->
+    <Color x:Key="MainMenuHeaderBackgroundColor">Transparent</Color>
+    <Color x:Key="MainMenuBackgroundColor">Transparent</Color>
+    <Color x:Key="MainMenuSeparatorColor">Transparent</Color>
+    <Color x:Key="MainMenuTextColor">#FFFFFF</Color>
+    <Color x:Key="MainMenuIconColor">#FFFFFF</Color>
+
+    <!--  SEPARATORS COLORS  -->
+    <Color x:Key="ListViewSeparatorColor">#22FFFFFF</Color>
+    <Color x:Key="BaseSeparatorColor">#eeeeee</Color>
+
+    <Color x:Key="FrameBorder">#1E242C</Color>
+</ResourceDictionary>

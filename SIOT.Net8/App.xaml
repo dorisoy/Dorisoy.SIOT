@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application
+    x:Class="SIOT.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SIOT"
+    xmlns:views="clr-namespace:SIOT.Views">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--<ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+            <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+        </ResourceDictionary.MergedDictionaries>-->
+
+            <!-- Default theme
+            Choose from one of the available prebuilt themes:
+        <ResourceDictionary Source="Themes/LightTheme.xaml" />
+        <ResourceDictionary Source="Themes/DarkTheme.xaml" />
+            -->
+            <ResourceDictionary Source="Themes/LightTheme.xaml" />
+
+            <ResourceDictionary Source="Styles/Buttons.xaml" />
+            <ResourceDictionary Source="Styles/Icons.xaml" />
+            <ResourceDictionary Source="Styles/Colors.xaml" />
+            <ResourceDictionary Source="Styles/Labels.xaml" />
+            <ResourceDictionary Source="Styles/Styles.xaml" />
+
+            <!--  UNITS  -->
+            <x:Double x:Key="BaseFontSize">14</x:Double>
+            <x:Double x:Key="BaseButtonHeight">44</x:Double>
+            <x:Int32 x:Key="BaseButtonCornerRadius">12</x:Int32>
+            <x:Double x:Key="BaseButtonBorderWith">0</x:Double>
+
+            <x:Double x:Key="MainMenuLabelFontsize">17</x:Double>
+            <x:Double x:Key="MainMenuIconFontsize">20</x:Double>
+            <x:Double x:Key="MenuChevronRightFontsize">24</x:Double>
+            <x:Double x:Key="MenuIconWidthRequest">22</x:Double>
+
+            <x:Double x:Key="BadgeSize">30</x:Double>
+            <x:Double x:Key="BadgeCornerRadius">15</x:Double>
+            <x:Double x:Key="BadgeFontSize">10</x:Double>
+
+            <Style x:Key="PageNavigationButton" TargetType="Button">
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+
+            <Style
+                x:Key="YellowPageNavigationButton"
+                BasedOn="{StaticResource PageNavigationButton}"
+                TargetType="Button">
+                <Setter Property="BackgroundColor" Value="DarkGoldenrod" />
+            </Style>
+
+            <Style
+                x:Key="GreenPageNavigationButton"
+                BasedOn="{StaticResource PageNavigationButton}"
+                TargetType="Button">
+                <Setter Property="BackgroundColor" Value="DarkGreen" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

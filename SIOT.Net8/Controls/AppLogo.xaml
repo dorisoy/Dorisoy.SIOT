@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Border
+    x:Class="SIOT.Controls.AppLogo"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SIOT.Controls"
+    Padding="0"
+    BackgroundColor="{DynamicResource PrimaryColor}"
+    HeightRequest="70"
+    HorizontalOptions="Start"
+    Stroke="{DynamicResource FrameBorder}"
+    StrokeShape="{RoundRectangle CornerRadius=8}"
+    StrokeThickness="3"
+    WidthRequest="70">
+    <Image
+        BackgroundColor="{DynamicResource White}"
+        HorizontalOptions="Center"
+        Source="logo.png"
+        VerticalOptions="Center"
+        WidthRequest="50" />
+</Border>

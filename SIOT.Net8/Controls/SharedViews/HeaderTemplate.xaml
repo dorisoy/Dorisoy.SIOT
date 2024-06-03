@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SIOT.Controls.HeaderTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:SIOT.Views"
+    BackgroundColor="{DynamicResource MainWrapperBackgroundColor}">
+    <ContentView.Resources>
+        <Style x:Key="HeaderStyle" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="HeightRequest" Value="46" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+        </Style>
+    </ContentView.Resources>
+    <Grid Margin="0" ColumnSpacing="10">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="46" />
+        </Grid.RowDefinitions>
+
+        <Label
+            x:Name="HeaderIcon"
+            Grid.Column="0"
+            FontFamily="IonIcons"
+            FontSize="30"
+            Style="{StaticResource HeaderStyle}"
+            Text="{x:Static views:IonIcons.IosPeople}"
+            TranslationY="-1" />
+
+        <Label
+            x:Name="HeaderLabel"
+            Grid.Column="1"
+            Style="{StaticResource HeaderStyle}"
+            Text="Header" />
+    </Grid>
+</ContentView>

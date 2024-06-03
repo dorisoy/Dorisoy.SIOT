@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="SIOT.Colors"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--
+        Custom Primary Colors used in Theme Settings
+    -->
+    <Color x:Key="ThemePrimaryColorOption1">#2F72E4</Color>
+    <Color x:Key="ThemePrimaryColorOption2">#523ee8</Color>
+    <Color x:Key="ThemePrimaryColorOption3">#06846A</Color>
+    <Color x:Key="ThemePrimaryColorOption4">#F54E5E</Color>
+    <Color x:Key="ThemePrimaryColorOption5">#D54008</Color>
+
+    <Color x:Key="Gray100">#E1E1E1</Color>
+    <Color x:Key="Gray200">#C8C8C8</Color>
+    <Color x:Key="Gray300">#ACACAC</Color>
+    <Color x:Key="Gray400">#919191</Color>
+    <Color x:Key="Gray500">#6E6E6E</Color>
+    <Color x:Key="Gray600">#404040</Color>
+    <Color x:Key="Gray700">#313131</Color>
+    <Color x:Key="Gray900">#212121</Color>
+    <Color x:Key="Gray950">#141414</Color>
+
+    <Color x:Key="Yellow100Accent">#F7B548</Color>
+    <Color x:Key="Yellow200Accent">#FFD590</Color>
+    <Color x:Key="Yellow300Accent">#FFE5B9</Color>
+    <Color x:Key="Cyan100Accent">#28C2D1</Color>
+    <Color x:Key="Cyan200Accent">#7BDDEF</Color>
+    <Color x:Key="Cyan300Accent">#C3F2F4</Color>
+    <Color x:Key="Blue100Accent">#2566dc</Color>
+    <Color x:Key="Blue200Accent">#2566dc</Color>
+    <Color x:Key="Blue300Accent">#2566dc</Color>
+
+    <Color x:Key="Grad1">#0061B5</Color>
+    <Color x:Key="Grad2">#17D4FF</Color>
+    <Color x:Key="Orange">#ff844a</Color>
+    <Color x:Key="Blue">#1152A7</Color>
+    <Color x:Key="BlurBlue">#30377DFF</Color>
+    <Color x:Key="BlurPrimary">#1A377DFF</Color>
+    <Color x:Key="DefaultBorder">#d0d7de</Color>
+
+    <Color x:Key="GradientStartColor">#af4aff</Color>
+    <Color x:Key="GradientEndColor">#3e5aff</Color>
+    <Color x:Key="GradientStart">#713d74</Color>
+    <Color x:Key="GradientEnd">#221e60</Color>
+    <Color x:Key="TwitterBlue">#55acee</Color>
+    <Color x:Key="BlurRed">#30FF392B</Color>
+    <Color x:Key="Red">#FF392B</Color>
+    <Color x:Key="FacebookBlue">#4267B2</Color>
+    <Color x:Key="LightGreen">#35c659</Color>
+    <Color x:Key="FacebookLogin">#3b5998</Color>
+    <Color x:Key="Transparent">Transparent</Color>
+    <Color x:Key="Link">#567cd7</Color>
+    <Color x:Key="Steel">#788396</Color>
+    <Color x:Key="Gold">#fcbc0f</Color>
+    <Color x:Key="Dull-Red">#c04848</Color>
+    <Color x:Key="Deep-Purple">#480048</Color>
+    <Color x:Key="BlurGreen">#3010CA87</Color>
+    <Color x:Key="Green">#FF10CA87</Color>
+    <Color x:Key="Liliac">#d483fc</Color>
+    <Color x:Key="Purpleish-Blue">#5d4cf7</Color>
+    <Color x:Key="Bright-Cyan">#3cdeff</Color>
+    <Color x:Key="Lemon-Lime">#bdff27</Color>
+    <Color x:Key="VioletGradientStart">#373668</Color>
+    <Color x:Key="VioletGradientEnd">#24243b</Color>
+    <Color x:Key="PinkGradientStart">#d54381</Color>
+    <Color x:Key="PinkGradientEnd">#7644ad</Color>
+
+    <LinearGradientBrush x:Key="VioletGradient" EndPoint="1,0">
+        <GradientStop Offset="0.1" Color="{StaticResource VioletGradientStart}" />
+        <GradientStop Offset="1.0" Color="{StaticResource VioletGradientEnd}" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="PinkGradient" EndPoint="1,0">
+        <GradientStop Offset="0.1" Color="{StaticResource PinkGradientStart}" />
+        <GradientStop Offset="1.0" Color="{StaticResource PinkGradientEnd}" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="OrangeGradient" EndPoint="1,0">
+        <GradientStop Offset="0.1" Color="#ff9632" />
+        <GradientStop Offset="1.0" Color="#e55313" />
+    </LinearGradientBrush>
+</ResourceDictionary>

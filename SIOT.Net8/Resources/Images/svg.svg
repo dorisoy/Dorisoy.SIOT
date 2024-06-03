@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	  viewBox="0 0 773.487 602.076" enable-background="new 0 0 773.487 602.076"
+	 xml:space="preserve">
+<g id="Layer_1">
+	<path fill="#3FA9F5" fill-opacity="0.2" d="M4.75,0.5c0,0-3.293,15.502,17.219,39.434l128.268,163.123l88.92,106.4l222.238,267.865
+		c0,0,57.878,37.591,118.562,5.112L777.987,435.41V0.5H4.75z"/>
+</g>
+<g id="Layer_2">
+	<g>
+		<defs>
+			<path id="XMLID_1_" d="M54.451,1c0,0-0.73,42.604,29.185,77.646c0,0,60.746,92.912,74.421,113.425
+				s223.963,341.756,223.963,341.756s39.686,56.348,109.771,40.108l280.695-165.021V1H54.451z"/>
+		</defs>
+		<use xlink:href="#XMLID_1_"  overflow="visible" fill="#FFFFFF"/>
+		<clipPath id="XMLID_3_">
+			<use xlink:href="#XMLID_1_"  overflow="visible"/>
+		</clipPath>
+		<g clip-path="url(#XMLID_3_)">
+			<image overflow="visible" id="svg_changing_id" width="950" height="700" xlink:href="/assets/img/hero/svg2.jpg">
+			</image>
+		</g>
+	</g>
+</g>
+</svg>

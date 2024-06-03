@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SIOT.Views.Pages.YellowPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="clr-namespace:SimpleToolkit.Core;assembly=SimpleToolkit.Core"
+    Title="YellowPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="case_empty.png"
+            Order="Secondary"
+            Text="Revert" />
+        <ToolbarItem
+            IconImageSource="flame_empty.png"
+            Order="Secondary"
+            Text="Settings" />
+        <ToolbarItem Order="Secondary" Text="Send Feedback" />
+        <ToolbarItem
+            IconImageSource="avatar_empty.png"
+            Order="Secondary"
+            Text="Help" />
+    </ContentPage.ToolbarItems>
+
+    <Grid BackgroundColor="Goldenrod">
+        <Label
+            FontAttributes="Bold"
+            FontSize="20"
+            HorizontalOptions="Center"
+            Text="Yellow page"
+            TextColor="White"
+            TextTransform="Uppercase"
+            VerticalOptions="Center" />
+
+        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="End">
+            <core:ContentButton Clicked="Button_Clicked_2" HorizontalOptions="Center">
+                <core:Popover.AttachedPopover>
+                    <core:Popover>
+                        <Border Stroke="Transparent" StrokeThickness="0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="4" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout Padding="10" Background="Yellow">
+                                <Label Text="Hello really long text" />
+                                <Label Text="Hello" />
+                                <Label Text="Hello" />
+                                <Label Text="Hello" />
+                                <Label Text="Hello" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </core:Popover>
+                </core:Popover.AttachedPopover>
+
+                <Border
+                    x:Name="innerBorder"
+                    Background="DarkGoldenrod"
+                    Stroke="Transparent"
+                    StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8" />
+                    </Border.StrokeShape>
+                    <Label
+                        Padding="12,8"
+                        HorizontalOptions="Start"
+                        Text="Popover test"
+                        TextColor="White" />
+                </Border>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Focused">
+                                <VisualState.Setters>
+                                    <Setter TargetName="innerBorder" Property="View.Background" Value="Orange" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter TargetName="innerBorder" Property="View.Background" Value="Goldenrod" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+            </core:ContentButton>
+
+            <Button
+                Clicked="Button_Clicked"
+                Style="{StaticResource YellowPageNavigationButton}"
+                Text="Go to first detail page" />
+            <Button
+                Clicked="Button_Clicked_1"
+                Style="{StaticResource YellowPageNavigationButton}"
+                Text="Go to second detail page" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

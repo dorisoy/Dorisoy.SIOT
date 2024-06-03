@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SIOT.Controls.Tag"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:SIOT.Converters"
+    x:Name="Root">
+    <ContentView.Resources>
+        <converters:IsNotNullConverter x:Key="IsNotNullConverter" />
+        <converters:IsNotEmptyStringConverter x:Key="IsNotEmptyStringConverter" />
+    </ContentView.Resources>
+    <Border>
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="{Binding CornerRadius, Source={x:Reference Root}}" />
+        </Border.StrokeShape>
+
+        <Grid ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--  IMAGE  -->
+            <Image
+                Grid.Column="0"
+                Margin="0,0,4,0"
+                Aspect="AspectFit"
+                HeightRequest="{Binding ImageSize, Source={x:Reference Root}}"
+                IsVisible="{Binding Image, Source={x:Reference Root}, Converter={StaticResource IsNotNullConverter}}"
+                Source="{Binding Image, Source={x:Reference Root}}"
+                WidthRequest="{Binding ImageSize, Source={x:Reference Root}}" />
+
+            <!--  ICON  -->
+            <Label
+                Grid.Column="1"
+                FontFamily="MauiKitIcons"
+                FontSize="{Binding Source={x:Reference Root}, Path=IconFontSize}"
+                HorizontalOptions="Center"
+                IsVisible="{Binding Icon, Source={x:Reference Root}, Converter={StaticResource IsNotEmptyStringConverter}}"
+                Text="{Binding Source={x:Reference Root}, Path=Icon}"
+                TextColor="{Binding Source={x:Reference Root}, Path=TextColor}"
+                VerticalOptions="Center" />
+
+            <!--  TEXT  -->
+            <Label
+                Grid.Column="2"
+                Margin="4,0"
+                FontSize="{Binding Source={x:Reference Root}, Path=FontSize}"
+                LineBreakMode="TailTruncation"
+                Text="{Binding Source={x:Reference Root}, Path=Text}"
+                TextColor="{Binding Source={x:Reference Root}, Path=TextColor}"
+                VerticalOptions="Center" />
+        </Grid>
+    </Border>
+</ContentView>

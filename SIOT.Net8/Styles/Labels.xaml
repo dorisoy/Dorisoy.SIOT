@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="SIOT.Labels"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+        <Setter Property="FontFamily" Value="RegularFont" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="TypographyMeta" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+    </Style>
+
+    <Style x:Key="LargeTitle" TargetType="Label">
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="FontFamily" Value="BoldFont" />
+    </Style>
+
+    <Style x:Key="Title1" TargetType="Label">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+        <Setter Property="FontFamily" Value="MediumFont" />
+    </Style>
+
+    <Style x:Key="Title2" TargetType="Label">
+        <Setter Property="FontSize" Value="17" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+        <Setter Property="FontFamily" Value="RegularFont" />
+    </Style>
+
+    <Style x:Key="Headline" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="MediumFont" />
+    </Style>
+
+    <Style x:Key="PrimaryLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+    </Style>
+
+    <Style x:Key="SubTitle" TargetType="Label">
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseLightTextColor}" />
+    </Style>
+
+    <Style x:Key="Subhead" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseLightTextColor}" />
+    </Style>
+
+    <Style x:Key="Footnote" TargetType="Label">
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <!--  Common style for Title labels  -->
+    <Style x:Key="CardTitleLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="FontFamily" Value="MediumFont" />
+        <Setter Property="LineHeight" Value="{OnPlatform Android=1.5, Default=-1}" />
+    </Style>
+
+    <!--  Common style for Description labels  -->
+    <Style x:Key="CardDescriptionLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseLightTextColor}" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="FontFamily" Value="RegularFont" />
+        <Setter Property="LineHeight" Value="{OnPlatform Android=1.5, Default=-1}" />
+    </Style>
+
+    <!--  Common style for Icon labels  -->
+    <Style x:Key="IconLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="FontFamily" Value="MauiKitIcons" />
+    </Style>
+
+    <!--  Bottom Sheet Header Style  -->
+    <Style x:Key="SheetHeaderTextLargeStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+    </Style>
+
+    <Style x:Key="SheetHeaderTextLargeLightStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseLightTextColor}" />
+    </Style>
+
+    <Style x:Key="SheetHeaderTextStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+    </Style>
+
+</ResourceDictionary>

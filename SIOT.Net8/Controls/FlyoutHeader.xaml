@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SIOT.Controls.FlyoutHeader"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SIOT.Controls"
+    HeightRequest="200">
+    <Grid>
+        <!--<Image
+            Aspect="AspectFill"
+            Opacity="0.6"
+            Source="welcome_bg_lg.jpg" />-->
+        <VerticalStackLayout
+            Padding="30"
+            HorizontalOptions="Start"
+            Spacing="15"
+            VerticalOptions="End">
+            <Border
+                Padding="0"
+                BackgroundColor="{DynamicResource PrimaryColor}"
+                HeightRequest="70"
+                HorizontalOptions="Start"
+                Stroke="{StaticResource BlurBlue}"
+                StrokeShape="{RoundRectangle CornerRadius=14}"
+                StrokeThickness="2"
+                WidthRequest="70">
+                <controls:RoundedCornerImage
+                    BackgroundColor="{DynamicResource White}"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    Source="logo.png"
+                    Stroke="Transparent"
+                    StrokeShape="{RoundRectangle CornerRadius=25}"
+                    VerticalOptions="Center"
+                    WidthRequest="50" />
+            </Border>
+            <HorizontalStackLayout Spacing="15">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    HorizontalTextAlignment="Start"
+                    Style="{StaticResource Title1}"
+                    Text=".NET MAUI Kit"
+                    TextColor="{DynamicResource PrimaryColor}"
+                    TranslationY="2"
+                    VerticalOptions="End"
+                    VerticalTextAlignment="End" />
+                <Frame
+                    Padding="8,3"
+                    BackgroundColor="{StaticResource BlurBlue}"
+                    BorderColor="Transparent"
+                    CornerRadius="6"
+                    HorizontalOptions="EndAndExpand"
+                    TranslationY="-2"
+                    VerticalOptions="Center">
+                    <Label
+                        FontSize="10"
+                        HorizontalOptions="Center"
+                        Text="Version 1.1.2"
+                        TextColor="{DynamicResource PrimaryColor}"
+                        VerticalOptions="Center" />
+                </Frame>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentView>

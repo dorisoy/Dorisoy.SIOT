@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VerticalStackLayout
+    x:Class="SIOT.Controls.ErrorIndicator"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Padding="48,12"
+    IsVisible="False">
+
+    <Image
+        x:Name="imgError"
+        Aspect="AspectFit"
+        HeightRequest="64"
+        HorizontalOptions="Center"
+        Source="{Binding ErrorImage, Mode=OneWay}"
+        WidthRequest="64" />
+
+    <Label
+        Margin="0,12,0,0"
+        HorizontalOptions="Center"
+        HorizontalTextAlignment="Center"
+        Text="Uh-Oh!" />
+
+    <Label
+        x:Name="lblErrorText"
+        HorizontalOptions="Center"
+        HorizontalTextAlignment="Center"
+        LineBreakMode="WordWrap" />
+
+</VerticalStackLayout>
+

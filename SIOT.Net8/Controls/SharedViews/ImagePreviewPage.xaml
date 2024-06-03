@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SIOT.Controls.ImagePreviewPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:SIOT.Views"
+    Title="ImagePreviewPage"
+    BackgroundColor="Black"
+    NavigationPage.HasNavigationBar="false">
+    <Grid>
+        <Image
+            x:Name="img"
+            HorizontalOptions="FillAndExpand"
+            IsAnimationPlaying="True"
+            Source="https://raw.githubusercontent.com/tlssoftware/raw-material/master/maui-kit/social/gallery_01.jpg"
+            VerticalOptions="FillAndExpand">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnImagePreviewDoubleTapped" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <!--  CLOSE ICON  -->
+        <Label
+            Margin="20,50"
+            HorizontalOptions="End"
+            HorizontalTextAlignment="End"
+            Style="{StaticResource IconCloseLabelStyle}"
+            TextColor="{DynamicResource White}"
+            VerticalOptions="Start">
+
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
+            </Label.GestureRecognizers>
+        </Label>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,11 @@
+﻿<maui:MauiWinUIApplication
+    x:Class="SIOT.WinUI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SIOT.WinUI"
+    xmlns:maui="using:Microsoft.Maui">
+    <maui:MauiWinUIApplication.Resources>
+        <Thickness x:Key="TextControlBorderThemeThickness">0</Thickness>
+        <Thickness x:Key="TextControlBorderThemeThicknessFocused">0</Thickness>
+    </maui:MauiWinUIApplication.Resources>
+</maui:MauiWinUIApplication>

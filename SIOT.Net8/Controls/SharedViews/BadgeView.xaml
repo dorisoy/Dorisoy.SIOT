@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Border
+    x:Class="SIOT.Controls.BadgeView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="BadgeShape"
+    HeightRequest="{StaticResource BadgeSize}"
+    WidthRequest="{StaticResource BadgeSize}">
+    <Border.StrokeShape>
+        <RoundRectangle CornerRadius="{StaticResource BadgeCornerRadius}" />
+    </Border.StrokeShape>
+    <Label
+        x:Name="LabelText"
+        FontAttributes="Bold"
+        FontSize="{StaticResource BadgeFontSize}"
+        HorizontalOptions="Center"
+        Text="1"
+        TextColor="{DynamicResource BaseTextColor}"
+        VerticalOptions="Center" />
+</Border>

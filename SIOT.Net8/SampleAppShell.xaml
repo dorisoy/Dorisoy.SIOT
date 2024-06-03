@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<shell:SimpleShell
+    x:Class="SIOT.SampleAppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SimpleToolkit.SimpleShell.Controls;assembly=SimpleToolkit.SimpleShell.Controls"
+    xmlns:core="clr-namespace:SimpleToolkit.Core;assembly=SimpleToolkit.Core"
+    xmlns:pages="clr-namespace:SIOT.Views.Pages"
+    xmlns:shell="clr-namespace:SimpleToolkit.SimpleShell;assembly=SimpleToolkit.SimpleShell"
+    xmlns:views="clr-namespace:SIOT.Views"
+    x:Name="thisShell"
+    Title="Transitions">
+    <shell:SimpleShell.Resources>
+        <Style x:Key="TabBarIcon" TargetType="core:Icon">
+            <Setter Property="TintColor" Value="#3b3b3b" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="HeightRequest" Value="20" />
+            <Setter Property="WidthRequest" Value="20" />
+        </Style>
+    </shell:SimpleShell.Resources>
+
+    <!--  Shell Items  -->
+    <Tab
+        Title="首页"
+        controls:SimpleShellIcon.SelectedIcon="home_filled.png"
+        Icon="home_empty.png">
+        <ShellContent Title="Tab"
+            controls:SimpleShellIcon.SelectedIcon="home_filled.png"
+            ContentTemplate="{DataTemplate views:HomePage}"
+            Icon="home_empty.png"
+            Route="HomePage" />
+    </Tab>
+
+    <Tab
+        Title="Statistics"
+        controls:SimpleShellIcon.SelectedIcon="dashboard_filled.png"
+        Icon="dashboard_empty.png">
+        <ShellContent
+            Title="Statistics"
+            controls:SimpleShellIcon.SelectedIcon="dashboard_filled.png"
+            ContentTemplate="{DataTemplate views:StatisticsPage}"
+            Icon="dashboard_empty.png"
+            Route="StatisticsPage" />
+    </Tab>
+
+    <Tab
+        Title="Pay"
+        controls:SimpleShellIcon.SelectedIcon="onboarding_filled.png"
+        Icon="onboarding_empty.png">
+        <ShellContent
+            Title="Pay"
+            controls:SimpleShellIcon.SelectedIcon="onboarding_filled.png"
+            ContentTemplate="{DataTemplate views:BillPaymentPage}"
+            Icon="onboarding_empty.png"
+            Route="BillPaymentPage" />
+    </Tab>
+
+    <Tab
+        Title="My Card"
+        controls:SimpleShellIcon.SelectedIcon="article_filled.png"
+        Icon="article_empty.png">
+        <ShellContent
+            Title="My Card"
+            controls:SimpleShellIcon.SelectedIcon="article_filled.png"
+            ContentTemplate="{DataTemplate views:MyCardsPage}"
+            Icon="article_empty.png"
+            Route="MyCardsPage" />
+    </Tab>
+
+    <Tab
+        Title="Profile"
+        controls:SimpleShellIcon.SelectedIcon="avatar_filled.png"
+        Icon="avatar_empty.png">
+        <ShellContent
+            Title="Profile"
+            controls:SimpleShellIcon.SelectedIcon="avatar_filled.png"
+            ContentTemplate="{DataTemplate views:AccountPage}"
+            Icon="avatar_empty.png"
+            Route="AccountPage" />
+    </Tab>
+
+    <shell:SimpleShell.Content>
+        <Grid x:Name="rootContainer" RowDefinitions="50, *, 70">
+            <Button
+                Margin="20,5"
+                Background="DarkOrange"
+                Clicked="BackButtonClicked"
+                HorizontalOptions="Start"
+                Text="Back" />
+            <Label
+                Margin="20,5"
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="{Binding CurrentShellContent.Title, Source={x:Reference thisShell}}"
+                VerticalOptions="Center" />
+
+            <Grid Grid.Row="1" IsClippedToBounds="True">
+                <shell:SimpleNavigationHost />
+            </Grid>
+
+            <Border
+                Grid.Row="2"
+                Padding="5"
+                BackgroundColor="{StaticResource White}"
+                StrokeThickness="1">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16,16,0,0" />
+                </Border.StrokeShape>
+                <HorizontalStackLayout
+                    BackgroundColor="Transparent"
+                    BindableLayout.ItemsSource="{Binding ShellContents, Source={x:Reference thisShell}}"
+                    HorizontalOptions="CenterAndExpand"
+                    Spacing="5">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="BaseShellItem">
+                            <core:ContentButton
+                                Background="Transparent"
+                                Clicked="ShellItemButtonClicked"
+                                VerticalOptions="Center">
+                                <Border
+                                    x:Name="border"
+                                    Padding="8,5"
+                                    BackgroundColor="#30377DFF">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10" />
+                                    </Border.StrokeShape>
+                                    <VerticalStackLayout
+                                        Padding="0"
+                                        BackgroundColor="Transparent"
+                                        Spacing="5">
+                                        <core:Icon
+                                            HeightRequest="18"
+                                            Source="{Binding Icon}"
+                                            TintColor="#1d192b"
+                                            VerticalOptions="Center"
+                                            WidthRequest="18" />
+                                        <Label
+                                            FontSize="14"
+                                            Text="{Binding Title}"
+                                            TextColor="#1d192b"
+                                            VerticalOptions="Center" />
+                                    </VerticalStackLayout>
+                                </Border>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroupList>
+                                        <VisualStateGroup>
+                                            <VisualState x:Name="Normal" />
+                                            <VisualState x:Name="Pressed">
+                                                <VisualState.Setters>
+                                                    <Setter TargetName="border" Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="PointerOver">
+                                                <VisualState.Setters>
+                                                    <Setter TargetName="border" Property="BackgroundColor" Value="DarkOrange" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateGroupList>
+                                </VisualStateManager.VisualStateGroups>
+                            </core:ContentButton>
+                            <!--<Button
+                                Background="DarkOrange"
+                                Clicked="ShellItemButtonClicked"
+                                ImageSource="{Binding Icon}"
+                                Text="{Binding Title}" />-->
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </HorizontalStackLayout>
+            </Border>
+
+        </Grid>
+    </shell:SimpleShell.Content>
+</shell:SimpleShell>

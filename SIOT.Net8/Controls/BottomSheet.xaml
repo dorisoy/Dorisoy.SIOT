@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SIOT.Controls.BottomSheet"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="BottomSheetControlRoot"
+    HorizontalOptions="Fill"
+    InputTransparent="True"
+    IsClippedToBounds="True"
+    VerticalOptions="Fill">
+
+    <ContentView.Resources>
+        <!--  Grid Styles  -->
+        <Style TargetType="Grid">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="RowSpacing" Value="0" />
+            <Setter Property="ColumnSpacing" Value="0" />
+            <Setter Property="VerticalOptions" Value="Fill" />
+            <Setter Property="HorizontalOptions" Value="Fill" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+        <Grid
+            x:Name="BackgroundFader"
+            BackgroundColor="#AA000000"
+            IgnoreSafeArea="True"
+            IsVisible="false"
+            Opacity="1">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CloseBottomSheetButton_Tapped" />
+            </Grid.GestureRecognizers>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition x:Name="BottomSheetRowDefinition" Height="{Binding Source={x:Reference BottomSheetControlRoot}, Path=SheetHeight, Mode=OneWay}" />
+            </Grid.RowDefinitions>
+
+            <!--  Close Button  -->
+            <Image
+                x:Name="CloseBottomSheetButton"
+                Grid.Row="0"
+                Margin="0,0,0,10"
+                HeightRequest="40"
+                HorizontalOptions="Center"
+                IsVisible="True"
+                Opacity="1"
+                Source="ic_login.png"
+                VerticalOptions="End"
+                WidthRequest="40">
+
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="CloseBottomSheetButton_Tapped" />
+                </Image.GestureRecognizers>
+
+            </Image>
+
+            <!--  Enclosing Border Control for Content  -->
+            <Border
+                x:Name="MainContent"
+                Grid.Row="1"
+                Margin="-1"
+                Padding="24,24,24,0"
+                BackgroundColor="{Binding Source={x:Reference BottomSheetControlRoot}, Path=SheetBackgroundColor}"
+                HorizontalOptions="Fill"
+                StrokeThickness="0"
+                TranslationY="{Binding Source={x:Reference BottomSheetControlRoot}, Path=SheetHeight, Mode=OneWay}"
+                VerticalOptions="Fill">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="32,32,0,0" />
+                </Border.StrokeShape>
+
+                <Grid RowDefinitions="Auto,*" RowSpacing="0">
+
+                    <!--  Header Content  -->
+                    <Label
+                        x:Name="HeaderLabel"
+                        Grid.Row="0"
+                        HorizontalOptions="Center"
+                        Style="{Binding Source={x:Reference BottomSheetControlRoot}, Path=HeaderStyle, Mode=OneWay}"
+                        Text="{Binding Source={x:Reference BottomSheetControlRoot}, Path=HeaderText, Mode=OneWay}"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+
+                    <!--  Main Content  -->
+                    <Grid x:Name="BottomSheetContentGrid" Grid.Row="1" />
+
+                </Grid>
+
+            </Border>
+
+        </Grid>
+    </ContentView.Content>
+
+</ContentView>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="SIOT.Icons"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:SIOT.Views">
+
+
+
+    <Style x:Key="IconCloseLabelStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="IonIcons" />
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="Text" Value="{x:Static views:IonIcons.AndroidClose}" />
+    </Style>
+
+    <Style x:Key="IconBackLabelStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="IonIcons" />
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="HeightRequest" Value="30" />
+        <Setter Property="WidthRequest" Value="30" />
+        <Setter Property="Text" Value="{x:Static views:IonIcons.AndroidArrowBack}" />
+    </Style>
+
+</ResourceDictionary>

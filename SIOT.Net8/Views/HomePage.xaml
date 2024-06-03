@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="SIOT.Views.HomePage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:animations="clr-namespace:AlohaKit.Animations;assembly=AlohaKit.Animations"
+             xmlns:controls="clr-namespace:SIOT.Controls"
+             xmlns:converters="clr-namespace:SIOT.Converters"
+             xmlns:helpers="clr-namespace:SIOT.Helpers"
+             xmlns:local="clr-namespace:SIOT"
+             xmlns:localization="clr-namespace:SIOT.Resources.Translations"
+             xmlns:models="clr-namespace:SIOT.Models"
+             xmlns:templates="clr-namespace:SIOT.Views.Templates"
+             xmlns:viewmodels="clr-namespace:SIOT.ViewModels"
+             xmlns:views="clr-namespace:SIOT.Views"
+             Title="SINOL-S2322"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BooleanToColorConverter x:Key="BooleanToColorConverter" />
+
+            <Style TargetType="templates:TransactionItemTemplate">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                            Value="Transparent" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ScrollView>
+        <Grid BackgroundColor="#f2f5fc"
+              RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+
+                <!--序列号卡片-->
+                <Border Grid.Row="0"
+                        Margin="-3,-5,-3,0"
+                        Padding="{OnIdiom Phone='15,10,15,15',
+                                      Tablet='30,20',
+                                      Desktop='60,20'}"
+                        BackgroundColor="#f2f5fc">
+
+                    <StackLayout>
+                        
+                        
+                        <Grid>
+                            <StackLayout Margin="15,10,15,0">
+                                <Label FontSize="14"
+                                       Text="Hi,"
+                                       TextColor="{DynamicResource BaseLightTextColor}" />
+                                <Label FontFamily="BoldFont"
+                                       FontSize="17"
+                                       Text="Sinol!"
+                                       TextColor="{DynamicResource BaseTextColor}" />
+                            </StackLayout>
+
+                            <!--  Notifications Icon  -->
+                            <Border Padding="5"
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="46"
+                                    HorizontalOptions="End"
+                                    Stroke="#2566dc"
+                                    StrokeShape="{RoundRectangle CornerRadius='25'}"
+                                    StrokeThickness="1"
+                                    TranslationY="0"
+                                    VerticalOptions="Center"
+                                    WidthRequest="46">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PayNowCommand}" />
+                                </Border.GestureRecognizers>
+
+                                <Label FontFamily="MauiKitIcons"
+                                       FontSize="{OnIdiom Phone='25',
+                                                       Tablet='25',
+                                                       Desktop='30'}"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HorizontalTextAlignment="Center"
+                                       Opacity="1"
+                                       Text="{x:Static views:MauiKitIcons.PowerPlugOff}"
+                                       TextColor="#2566dc"
+                                       VerticalOptions="CenterAndExpand" />
+                            </Border>
+                        </Grid>
+
+                        <Frame Margin="5,5,5,5"
+                               Padding="0"
+                               CornerRadius="20"
+                               HeightRequest="{OnIdiom Phone=200,
+                                                    Tablet=400,
+                                                    Desktop=410}"
+                               IsClippedToBounds="True">
+                            <Grid Padding="0"
+                                  RowSpacing="{OnIdiom Phone=0, Tablet=5, Desktop=10}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!--  Background color  -->
+                                <Rectangle Grid.RowSpan="4"
+                                           Fill="#2566dc"
+                                           HorizontalOptions="FillAndExpand"
+                                           InputTransparent="true"
+                                           Opacity="1"
+                                           VerticalOptions="FillAndExpand" />
+
+                                <!--  Background image  -->
+                                <Image Grid.RowSpan="3"
+                                       Aspect="AspectFill"
+                                       Opacity="0.2"
+                                       Source="abs_bg.png" />
+
+                                <!--  Card Name  -->
+                                <Label Margin="20,30,20,0"
+                                       FontAttributes="Bold"
+                                       FontSize="16"
+                                       Text="设备序列号"
+                                       TextColor="{DynamicResource OverImageTextColor}"
+                                       VerticalOptions="End" />
+
+                                <Label Grid.Row="1"
+                                       Margin="20,0,20,20"
+                                       FontAttributes="Bold"
+                                       FontFamily="BoldFont"
+                                       FontSize="26"
+                                       HeightRequest="30"
+                                       Text="SN6525-3456-8923-5318"
+                                       TextColor="{DynamicResource OverImageTextColor}"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center"
+                                       VerticalTextAlignment="Center" />
+
+                                <StackLayout Grid.Row="2"
+                                             Margin="20,0,20,20"
+                                             VerticalOptions="Center">
+                                    <Label FontFamily="BoldFont"
+                                           FontSize="14"
+                                           Text="设备注册日期"
+                                           TextColor="{DynamicResource OverImageTextColor}" />
+                                    <Label FontFamily="BoldFont"
+                                           FontSize="14"
+                                           Style="{StaticResource Title1}"
+                                           Text="2024-05-31"
+                                           TextColor="{DynamicResource OverImageTextColor}" />
+                                </StackLayout>
+
+                                <!--  Icon displaying card type  -->
+                                <Image Grid.Row="2"
+                                       Margin="15"
+                                       HeightRequest="25"
+                                       HorizontalOptions="End"
+                                       Source="master_card.png"
+                                       VerticalOptions="Center" />
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+
+
+                </Border>
+                
+                
+
+                <VerticalStackLayout Grid.Row="1"
+                                     Margin="15,0"
+                                     Spacing="20"
+                                     VerticalOptions="StartAndExpand">
+
+                    <!--  遥测卡片  -->
+                    <Grid Margin="0,0"
+                          RowDefinitions="*,*"
+                          ColumnDefinitions="*,*"
+                          HorizontalOptions="FillAndExpand"
+                          ColumnSpacing="10"
+                          RowSpacing="10">
+
+                        <!--  水温  -->
+                        <Border Grid.Row="0"
+                                Grid.Column="0"
+                                Padding="20"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="#ffffff"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill"
+                                Stroke="Transparent"
+                                StrokeShape="{RoundRectangle CornerRadius='20'}"
+                                TranslationY="0">
+
+                            <Border.Shadow>
+                                <Shadow Opacity="0.1"
+                                        Offset="2,2"
+                                        Radius="0" />
+                            </Border.Shadow>
+
+                            <Grid RowDefinitions="Auto,20"
+                                  ColumnDefinitions="*"
+                                  ColumnSpacing="0"
+                                  x:Name="myGrid">
+
+                                <!--<Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       Grid.RowSpan="2"
+                                       FontFamily="MauiKitIcons"
+                                       FontSize="{OnIdiom Phone='35',Tablet='35',Desktop='30'}"
+                                       HorizontalOptions="Start"
+                                       HorizontalTextAlignment="Start"
+                                       Opacity="1"
+                                       Text="{x:Static views:MauiKitIcons.Water}"
+                                       TextColor="#2566dc"
+                                       VerticalOptions="CenterAndExpand" />-->
+
+                                <HorizontalStackLayout>
+                                    <Label  Grid.Row="0"
+                                            Grid.Column="0"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="End"
+                                            FontFamily="MauiKitIcons"
+                                            Text="{x:Static views:MauiKitIcons.Water}"
+                                            TextColor="#2566dc"
+                                            FontSize="35"
+                                            Margin="0,0,0,0"
+                                            FontAttributes="None" />
+                                    <Label Margin="0,5,0,0"
+                                           HorizontalOptions="End"
+                                           VerticalTextAlignment="Center"
+                                           Text="水温"
+                                           FontSize="14"
+                                           TextColor="#2566dc" />
+                                </HorizontalStackLayout>
+
+                                <controls:GaugeView  Grid.Row="1"
+                                                     Grid.Column="0"
+                                                     BindingContext="{x:Reference myGrid}"
+                                                     GaugeWidth="330"
+                                                     VerticalOptions="Center"
+                                                     HorizontalOptions="Fill"
+                                                     GaugeType="Horizontal"
+                                                     GaugeValue="29"
+                                                     GaugeColor="#2566dc"
+                                                     GaugeUnit="℃"
+                                                     GaugeMinimum="0"
+                                                     GaugeMaximum="40" />
+
+                            </Grid>
+
+                        </Border>
+                        
+                        <!--  水压  -->
+                        <Border Grid.Row="1"
+                                Grid.Column="0"
+                                Padding="20"
+                                BackgroundColor="White"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill"
+                                Stroke="Transparent"
+                                StrokeShape="{RoundRectangle CornerRadius='20'}"
+                                TranslationY="0">
+                            <Border.Shadow>
+                                <Shadow Opacity="0.1"
+                                        Offset="2,2"
+                                        Radius="0" />
+                            </Border.Shadow>
+                            
+                            <Grid RowDefinitions="*,40"
+                                  ColumnDefinitions="*,Auto">
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="0.5"
+                                       FontSize="50"
+                                       FontAttributes="Bold"
+                                       TextColor="#2566dc"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       VerticalTextAlignment="Center" />
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="MPa"
+                                       FontSize="16"
+                                       TextColor="#ddd"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="End"/>
+                                <Border Grid.Row="1"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        Margin="0,10,0,0"
+                                        StrokeShape="{RoundRectangle CornerRadius='8'}"
+                                        BackgroundColor="#eee">
+                                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+
+                                        <Label FontFamily="MauiKitIcons"
+                                               FontSize="20"
+                                               HorizontalOptions="Start"
+                                               VerticalTextAlignment="Center"
+                                               Opacity="1"
+                                               Text="{x:Static views:MauiKitIcons.Speedometer}"
+                                               TextColor="#2566dc"
+                                               VerticalOptions="Center" />
+
+                                        <Label Margin="10,5,0,0"
+                                               HorizontalOptions="End"
+                                               VerticalTextAlignment="Center"
+                                               Text="水压（兆帕）"
+                                               FontSize="14"
+                                               FontAttributes="Bold"
+                                               TextColor="#2566dc" />
+
+                                    </HorizontalStackLayout>
+                                </Border>
+                            </Grid>
+                        </Border>
+
+                        <!--  气压  -->
+                        <Border Grid.Row="1"
+                                Grid.Column="2"
+                                Padding="20"
+                                BackgroundColor="White"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill"
+                                Stroke="Transparent"
+                                StrokeShape="{RoundRectangle CornerRadius='20'}"
+                                TranslationY="0">
+                            <Border.Shadow>
+                                <Shadow Opacity="0.1"
+                                        Offset="2,2"
+                                        Radius="0" />
+                            </Border.Shadow>
+
+                            <Grid RowDefinitions="*,40"
+                                  ColumnDefinitions="*,Auto">
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="0.3"
+                                       FontSize="50"
+                                       FontAttributes="Bold"
+                                       TextColor="#2566dc"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       VerticalTextAlignment="Center" />
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="MPa"
+                                       FontSize="16"
+                                       TextColor="#ddd"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="End" />
+                                <Border Grid.Row="1"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        Margin="0,10,0,0"
+                                        StrokeShape="{RoundRectangle CornerRadius='8'}"
+                                        BackgroundColor="#eee">
+                                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+
+                                        <Label FontFamily="MauiKitIcons"
+                                               FontSize="20"
+                                               HorizontalOptions="Start"
+                                               VerticalTextAlignment="Center"
+                                               Opacity="1"
+                                               Text="{x:Static views:MauiKitIcons.Speedometer}"
+                                               TextColor="#2566dc"
+                                               VerticalOptions="Center" />
+
+                                        <Label Margin="10,5,0,0"
+                                               HorizontalOptions="End"
+                                               VerticalTextAlignment="Center"
+                                               Text="气压（兆帕）"
+                                               FontSize="14"
+                                               FontAttributes="Bold"
+                                               TextColor="#2566dc" />
+
+                                    </HorizontalStackLayout>
+                                </Border>
+                            </Grid>
+                        </Border>
+
+
+                    </Grid>
+
+
+                    <HorizontalStackLayout VerticalOptions="Center">
+                        <Border WidthRequest="10"
+                                HeightRequest="18"
+                                Background="#2566dc"
+                                BackgroundColor="#2566dc"
+                                VerticalOptions="Center"
+                                Margin="0,-4,0,0" />
+                        <Label FontAttributes="Bold"
+                               FontFamily="BoldFont"
+                               FontSize="18"
+                               Text="开关控制"
+                               TextColor="{DynamicResource BaseTextColor}"
+                               Margin="5,0,0,0"
+                               VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <!--  开关卡片  -->
+                    <Grid Margin="0,0"
+                          RowDefinitions="*,*"
+                          ColumnDefinitions="*,*"
+                          HorizontalOptions="FillAndExpand"
+                          ColumnSpacing="10"
+                          RowSpacing="10">
+
+                        <!--  口腔灯  -->
+                        <Border Grid.Row="0"
+                                Grid.Column="0"
+                                Padding="20"
+                                BackgroundColor="#2566dc"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill"
+                                Stroke="Transparent"
+                                StrokeShape="{RoundRectangle CornerRadius='20'}"
+                                TranslationY="0">
+
+
+                            <Border.Shadow>
+                                <Shadow Opacity="0.1"
+                                        Offset="2,2"
+                                        Radius="0" />
+                            </Border.Shadow>
+
+                            <Grid RowDefinitions="*,*"
+                                  ColumnDefinitions="*,*">
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       FontFamily="MauiKitIcons"
+                                       FontSize="{OnIdiom Phone='35',Tablet='35',Desktop='30'}"
+                                       HorizontalOptions="Start"
+                                       HorizontalTextAlignment="Start"
+                                       Opacity="1"
+                                       Text="{x:Static views:MauiKitIcons.LightbulbOn}"
+                                       TextColor="#ffffff"
+                                       VerticalOptions="CenterAndExpand" />
+
+                                <Switch Grid.Row="0"
+                                        Grid.Column="1"
+                                        OnColor="White"
+                                        ThumbColor="White" />
+
+                                <StackLayout Grid.Row="1"
+                                             Grid.Column="0"
+                                             Grid.ColumnSpan="2"
+                                             Margin="0,10,0,0">
+                                    <Label HorizontalOptions="Start"
+                                           Text="口腔灯"
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           TextColor="#ffffff" />
+                                    <!--口腔冷光灯感应-->
+                                    <Label HorizontalOptions="Start"
+                                           Text="Oral lamp"
+                                           TextColor="#ffffff" />
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </Border>
+
+                        <!--  冲盂  -->
+                        <Border Grid.Row="0"
+                                Grid.Column="1"
+                                Padding="20"
+                                BackgroundColor="White"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill"
+                                Stroke="Transparent"
+                                StrokeShape="{RoundRectangle CornerRadius='20'}"
+                                TranslationY="0">
+                            <Border.Shadow>
+                                <Shadow Opacity="0.1"
+                                        Offset="2,2"
+                                        Radius="0" />
+                            </Border.Shadow>
+
+                            <Grid RowDefinitions="*,*"
+                                  ColumnDefinitions="*,*">
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       FontFamily="MauiKitIcons"
+                                       FontSize="{OnIdiom Phone='35',Tablet='35',Desktop='30'}"
+                                       HorizontalOptions="Start"
+                                       HorizontalTextAlignment="Start"
+                                       Opacity="1"
+                                       Text="{x:Static views:MauiKitIcons.WaterPump}"
+                                       TextColor="#2566dc"
+                                       VerticalOptions="CenterAndExpand" />
+
+                                <Switch Grid.Row="0"
+                                        Grid.Column="1"
+                                        OnColor="#2566dc"
+                                        ThumbColor="#2566dc" />
+
+                                <StackLayout Grid.Row="1"
+                                             Grid.Column="0"
+                                             Grid.ColumnSpan="2"
+                                             Margin="0,10,0,0">
+                                    <Label HorizontalOptions="Start"
+                                           Text="冲盂"
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           TextColor="#2566dc" />
+                                    <!--冲盂水流控制-->
+                                    <Label HorizontalOptions="Start"
+                                           Text="Flushing water"
+                                           TextColor="#2566dc" />
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </Border>
+
+                        <!--  漱口  -->
+                        <Border Grid.Row="1"
+                                Grid.Column="0"
+                                Padding="20"
+                                BackgroundColor="White"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill"
+                                Stroke="Transparent"
+                                StrokeShape="{RoundRectangle CornerRadius='20'}"
+                                TranslationY="0">
+                            <Border.Shadow>
+                                <Shadow Opacity="0.1"
+                                        Offset="2,2"
+                                        Radius="0" />
+                            </Border.Shadow>
+
+                            <Grid RowDefinitions="*,*"
+                                  ColumnDefinitions="*,*">
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       FontFamily="MauiKitIcons"
+                                       FontSize="{OnIdiom Phone='35',Tablet='35',Desktop='30'}"
+                                       HorizontalOptions="Start"
+                                       HorizontalTextAlignment="Start"
+                                       Opacity="1"
+                                       Text="{x:Static views:MauiKitIcons.CupWater}"
+                                       TextColor="#2566dc"
+                                       VerticalOptions="CenterAndExpand" />
+
+                                <Switch Grid.Row="0"
+                                        Grid.Column="1"
+                                        OnColor="#2566dc"
+                                        ThumbColor="#2566dc" />
+
+                                <StackLayout Grid.Row="1"
+                                             Grid.Column="0"
+                                             Grid.ColumnSpan="2"
+                                             Margin="0,10,0,0">
+                                    <Label HorizontalOptions="Start"
+                                           Text="漱口水"
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           TextColor="#2566dc" />
+                                    <!--漱口水出水控制-->
+                                    <Label HorizontalOptions="Start"
+                                           Text="Rinse the mouth"
+                                           TextColor="#2566dc" />
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </Border>
+
+                        <!--  加热  -->
+                        <Border Grid.Row="1"
+                                Grid.Column="1"
+                                Padding="20"
+                                BackgroundColor="White"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill"
+                                Stroke="Transparent"
+                                StrokeShape="{RoundRectangle CornerRadius='20'}"
+                                TranslationY="0">
+                            <Border.Shadow>
+                                <Shadow Opacity="0.1"
+                                        Offset="2,2"
+                                        Radius="0" />
+                            </Border.Shadow>
+
+                            <Grid RowDefinitions="*,*"
+                                  ColumnDefinitions="*,*">
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       FontFamily="MauiKitIcons"
+                                       FontSize="{OnIdiom Phone='35',Tablet='35',Desktop='30'}"
+                                       HorizontalOptions="Start"
+                                       HorizontalTextAlignment="Start"
+                                       Opacity="1"
+                                       Text="{x:Static views:MauiKitIcons.HotTub}"
+                                       TextColor="#2566dc"
+                                       VerticalOptions="CenterAndExpand" />
+
+                                <Switch Grid.Row="0"
+                                        Grid.Column="1"
+                                        OnColor="#2566dc"
+                                        ThumbColor="#2566dc" />
+
+                                <StackLayout Grid.Row="1"
+                                             Grid.Column="0"
+                                             Grid.ColumnSpan="2"
+                                             Margin="0,10,0,0">
+                                    <Label HorizontalOptions="Start"
+                                           Text="加热"
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           TextColor="#2566dc" />
+                                    <!--漱口水加热-->
+                                    <Label HorizontalOptions="Start"
+                                           Text="Mouthwash heating"
+                                           TextColor="#2566dc" />
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </Border>
+
+                    </Grid>
+
+
+                </VerticalStackLayout>
+            </Grid>
+
+
+
+            <Border Grid.Row="1"
+                    Padding="25"
+                    Margin="0,15,0,0"
+                    BackgroundColor="#2566dc"
+                    StrokeShape="{RoundRectangle CornerRadius='20,20,0,0'}">
+
+                <Grid ColumnDefinitions="*,Auto"
+                      ColumnSpacing="12"
+                      RowDefinitions="Auto, Auto">
+
+                    <Label Grid.Column="0"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           Text="快速访问远程"
+                           TextColor="{DynamicResource OverImageTextColor}" />
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           FontSize="13"
+                           Text="Turn right to get fast access to yourwireless remote control"
+                           TextColor="{DynamicResource OverImageTextColor}" />
+
+
+                    <Border  Grid.Column="1"
+                             Grid.RowSpan="2"
+                             Padding="5"
+                             BackgroundColor="{DynamicResource PrimaryColor}"
+                             HeightRequest="46"
+                             HorizontalOptions="Start"
+                             Stroke="Transparent"
+                             StrokeShape="{RoundRectangle CornerRadius='25'}"
+                             TranslationY="0"
+                             VerticalOptions="Center"
+                             WidthRequest="46">
+                        <Label FontFamily="MauiKitIcons"
+                               FontSize="{OnIdiom Phone='30',
+                                  Tablet='35',
+                                  Desktop='30'}"
+                               HorizontalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Center"
+                               Opacity="1"
+                               Text="{x:Static views:MauiKitIcons.ArrowRight}"
+                               TextColor="{DynamicResource OverImageTextColor}"
+                               VerticalOptions="CenterAndExpand" />
+                    </Border>
+                </Grid>
+
+            </Border>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

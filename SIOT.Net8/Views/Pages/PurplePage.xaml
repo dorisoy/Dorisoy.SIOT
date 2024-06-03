@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:simpleCore="clr-namespace:SimpleToolkit.Core;assembly=SimpleToolkit.Core"         
+    x:Class="SIOT.Views.Pages.PurplePage"
+    Title="PurplePage">
+    
+    <Grid BackgroundColor="MediumPurple">
+        <ScrollView>
+            <VerticalStackLayout>
+                <Label
+                    FontSize="20"
+                    Text="Purple page"
+                    TextColor="White"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+                <simpleCore:ContentButton
+                    Clicked="ContentButton_Clicked">
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+                <simpleCore:ContentButton>
+                    <Grid Background="Purple" Padding="20">
+                        <Label
+                            Text="Text"
+                            TextTransform="Uppercase" FontAttributes="Bold"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            TextColor="White"/>
+                    </Grid>
+                </simpleCore:ContentButton>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

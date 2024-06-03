@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Border
+    x:Class="SIOT.Controls.GalleryImage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="Root"
+    Padding="0"
+    BackgroundColor="{DynamicResource MainWrapperBackgroundColor}"
+    HeightRequest="{OnIdiom Phone='120',
+                            Tablet='150',
+                            Desktop='200'}"
+    HorizontalOptions="{OnIdiom Phone='FillAndExpand',
+                                Tablet='CenterAndExpand',
+                                Desktop='CenterAndExpand'}"
+    StrokeShape="{RoundRectangle CornerRadius='14'}"
+    VerticalOptions="CenterAndExpand">
+    <Image Aspect="{OnIdiom Phone='AspectFill', Desktop='AspectFill', Tablet='AspectFit'}" Source="{Binding Source={x:Reference Root}, Path=Image}" />
+
+    <Border.GestureRecognizers>
+        <TapGestureRecognizer Tapped="OnImageTapped" />
+    </Border.GestureRecognizers>
+</Border>
