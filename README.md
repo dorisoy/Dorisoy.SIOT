@@ -2,7 +2,7 @@
 
 一款基于.Net8.0, 下使用 MAUI 框架下开发的跨平台牙科治疗机物联网移动端应用程序，并实现数据采集的可视化检测和远程控制。
 
-# 屏幕
+# Android屏幕
 
 <img src="https://github.com/dorisoy/Dorisoy.SIOT/blob/main/Screen/12.jpg" align="left" width="260" vspace="20"/>
 
