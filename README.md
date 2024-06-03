@@ -1,6 +1,7 @@
 # Dorisoy.SIOT
 
-一款基于.Net8.0, 下使用 MAUI 框架下开发的跨平台牙科治疗机物联网移动端应用程序，并实现数据采集的可视化检测和远程控制。
+一款基于.Net8.0, 下使用 MAUI 框架开发的跨平台牙科治疗机物联网移动端应用程序，实现了水温检测[Speedometer](https://github.com/search?q=maui-radialgauge&type=repositories)，高速手机转速[radial gauge](https://github.com/search?q=maui-Speedometer&type=repositories)，电动马达功率，光纤灯光亮度调节等数据采集的仪表盘数据监测，并实现数据采集的可视化检测和远程控制。
+
 
 # Android屏幕
 
