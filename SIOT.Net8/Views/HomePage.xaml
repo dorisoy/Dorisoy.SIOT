@@ -8,7 +8,6 @@
              xmlns:converters="clr-namespace:SIOT.Converters"
              xmlns:helpers="clr-namespace:SIOT.Helpers"
              xmlns:local="clr-namespace:SIOT"
-             xmlns:localization="clr-namespace:SIOT.Resources.Translations"
              xmlns:models="clr-namespace:SIOT.Models"
              xmlns:templates="clr-namespace:SIOT.Views.Templates"
              xmlns:viewmodels="clr-namespace:SIOT.ViewModels"

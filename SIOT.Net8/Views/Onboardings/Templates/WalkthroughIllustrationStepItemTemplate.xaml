@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SIOT.Views.Onboardings.WalkthroughIllustrationStepItemTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentView.Content>
+        <StackLayout
+            Margin="50"
+            Spacing="20"
+            VerticalOptions="CenterAndExpand">
+
+            <!--  Image for display svg image  -->
+            <Image
+                Aspect="AspectFit"
+                HorizontalOptions="Fill"
+                Source="{Binding ImagePath}" />
+
+            <!--  Label to display header  -->
+            <Label
+                FontAttributes="Bold"
+                FontSize="24"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Title}" />
+
+            <!--  Label to display content  -->
+            <Label
+                FontSize="16"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Subtitle}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

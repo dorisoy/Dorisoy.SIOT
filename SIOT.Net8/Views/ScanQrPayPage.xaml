@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SIOT.Views.ScanQrPayPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SIOT.Controls"
+    xmlns:handlers="clr-namespace:SIOT.Handlers"
+    xmlns:helpers="clr-namespace:SIOT.Helpers"
+    xmlns:local="clr-namespace:SIOT"
+    xmlns:models="clr-namespace:SIOT.Models"
+    xmlns:viewmodels="clr-namespace:SIOT.ViewModels"
+    xmlns:views="clr-namespace:SIOT.Views"
+    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+    Title="设备扫码">
+
+    <Grid>
+        <zxing:CameraBarcodeReaderView x:Name="barcodeView" BarcodesDetected="BarcodesDetected" />
+
+        <Image Aspect="AspectFill" Source="scanner_mask.png" />
+
+        <Grid Padding="0" RowDefinitions="Auto, *, Auto">
+
+            <Grid Grid.Row="0" Padding="0,30">
+                <VerticalStackLayout>
+                    <Label
+                        FontFamily="BoldFont"
+                        FontSize="22"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="SINOL-QR"
+                        TextColor="{DynamicResource PrimaryColor}"
+                        VerticalOptions="Center" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                           Text="扫描设备二维码、注册或识别"
+                        TextColor="{DynamicResource OverImageTextColor}"
+                        VerticalOptions="Center" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid
+                Grid.Row="2"
+                Padding="20"
+                ColumnDefinitions="Auto, *, Auto"
+                RowDefinitions="100, Auto">
+
+                <Grid
+                    Grid.ColumnSpan="3"
+                    RowDefinitions="Auto,Auto"
+                    RowSpacing="20">
+                    <!--<HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Image HeightRequest="25" Source="apple_pay.png" />
+
+                        <BoxView
+                            HeightRequest="16"
+                            WidthRequest="1"
+                            Color="{DynamicResource BaseSeparatorColor}" />
+
+                        <Image HeightRequest="25" Source="paypal_pay.png" />
+                    </HorizontalStackLayout>-->
+
+                    <HorizontalStackLayout
+                        Grid.Row="1"
+                        HorizontalOptions="Center"
+                        Spacing="10">
+                        <Image HeightRequest="15" Source="visa.png" />
+
+                        <BoxView
+                            HeightRequest="12"
+                            WidthRequest="1"
+                            Color="{DynamicResource BaseSeparatorColor}" />
+
+                        <Image HeightRequest="30" Source="master_card.png" />
+                    </HorizontalStackLayout>
+                </Grid>
+
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BackgroundColor="#aa000000"
+                    BorderColor="Black"
+                    Clicked="SwitchCameraButton_Clicked"
+                    CornerRadius="8"
+                    Text="🔄️" />
+
+                <!--  Display the scan result  -->
+                <!--<zxing:BarcodeGeneratorView
+                x:Name="barcodeGenerator"
+                Grid.Column="1" Grid.Row="1"
+                BarcodeMargin="1"
+                ForegroundColor="DarkBlue"
+                Format="QrCode"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="100"
+                Value="Bla" />-->
+                <Label
+                    x:Name="labelScanResult"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontFamily="MediumFont"
+                    FontSize="15"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    TextColor="{DynamicResource OverImageTextColor}"
+                    VerticalOptions="Center" />
+
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    BackgroundColor="#aa000000"
+                    BorderColor="Black"
+                    Clicked="TorchButton_Clicked"
+                    CornerRadius="8"
+                    Text="💡" />
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

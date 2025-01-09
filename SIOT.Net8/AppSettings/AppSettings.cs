@@ -10,7 +10,6 @@ public class AppSettings
     private int selectedPrimaryColor;
 
     private ThemePalette selectedPrimaryColorItem;
-    public LocalizationResourceManager LocalizationResourceManager { get; }
 
     private bool isGridView;
 
@@ -21,10 +20,10 @@ public class AppSettings
 
     private AppSettings()
     {
-        LocalizationResourceManager = LocalizationResourceManager.Instance;
+       
         this.IsGridView = true;
         this.currentTheme = Application.Current.RequestedTheme;
-        this.selectedPrimaryColor = this.currentTheme == AppTheme.Light ? 0 : 1;  //ThemeUtil: ApplyColorSet1 by default for LightTheme, ApplyColorSet2 by default for DarkTheme
+        this.selectedPrimaryColor = this.currentTheme == AppTheme.Light ? 0 : 1; 
     }
 
     public static AppSettings Instance { get; }

@@ -4,7 +4,7 @@ public partial class AccountViewModel : ObservableObject
     public ICommand TapCommand { get; private set; }
     public string Name { get; set; } = "Alex Wilson";
     public string Email { get; set; } = "alex.wil@maui.com";
-    public string ImageUrl { get; set; } = "https://raw.githubusercontent.com/tlssoftware/raw-material/master/maui-kit/avatars/150-13.jpg";
+    public string ImageUrl { get; set; } = "150-13.jpg";
 
     public AccountViewModel()
     {
@@ -12,15 +12,15 @@ public partial class AccountViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async void UpdateAccount()
+    private  void UpdateAccount()
     {
-        await PopupAction.DisplayPopup(new AccountUpdatePage());
+
     }
 
     [RelayCommand]
-    private async void GotoPrivacy()
+    private  void GotoPrivacy()
     {
-        await Shell.Current.GoToAsync(nameof(PrivacyPolicyPage));
+
     }
 
     [RelayCommand]

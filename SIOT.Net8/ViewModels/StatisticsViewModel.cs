@@ -108,39 +108,6 @@ public partial class StatisticsViewModel : ObservableObject
         UpdateIncomeExpenseData();
 
 
-        //
-
-        //Series = new ObservableCollection<ISeries>
-        //{
-        //    new LineSeries<DateTimePoint>
-        //    {
-
-        //        Values = _values,
-        //        Fill = null,
-        //        GeometryFill = null,
-        //        GeometryStroke = null,
-
-        //    }
-        //};
-
-        //_customAxis = new DateTimeAxis(TimeSpan.FromSeconds(1), Formatter)
-        //{
-
-        //    CustomSeparators = GetSeparators(),
-        //    AnimationsSpeed = TimeSpan.FromMilliseconds(0),
-        //    SeparatorsPaint = new SolidColorPaint(SKColors.Black.WithAlpha(100))
-        //};
-
-        //var yAxis = new Axis
-        //{
-        //    IsVisible = false,
-        //  };
-
-        ////XAxes = new Axis[] { _customAxis };
-        //YAxes = new Axis[] { yAxis };
-
-        //_ = ReadData();
-
 
         var data = new[]
         {
@@ -256,62 +223,6 @@ public partial class StatisticsViewModel : ObservableObject
     {
         return $"{date.Month}M";
     }
-
-
-
-    /// <summary>
-    /// 
-    /// </summary>
-
-    //public ObservableCollection<ISeries> Series { get; set; }
-
-    //public Axis[] XAxes { get; set; }
-    //public Axis[] YAxes { get; set; }
-
-    //public object Sync { get; } = new object();
-
-    //public bool IsReading { get; set; } = true;
-
-    //private async Task ReadData()
-    //{
-    //    //为了使这个示例保持简单，我们运行下一个无限循环
-    //    //在实际应用程序中，当视图被释放时，应该停止循环/任务
-
-    //    while (IsReading)
-    //    {
-    //        await Task.Delay(100);
-
-    //        //因为我们正在从另一个线程更新图表
-    //        //我们需要使用锁来访问图表数据。
-    //        //如果您的更改是在UI线程中进行的，那么这是不必要的。
-    //        lock (Sync)
-    //        {
-    //            _values.Add(new DateTimePoint(DateTime.Now, _random.Next(0, 10)));
-
-    //            if (_values.Count > 250) _values.RemoveAt(0);
-
-    //            // 每次添加新点时，我们都需要更新分隔符 
-    //            _customAxis.CustomSeparators = GetSeparators();
-    //        }
-    //    }
-    //}
-
-    //private double[] GetSeparators()
-    //{
-    //    var now = DateTime.Now;
-
-    //    return new double[]
-    //    {
-    //        now.AddSeconds(-25).Ticks,
-    //        now.AddSeconds(-20).Ticks,
-    //        now.AddSeconds(-15).Ticks,
-    //        now.AddSeconds(-10).Ticks,
-    //        now.AddSeconds(-5).Ticks,
-    //        now.Ticks
-    //    };
-    //}
-
-
 
 
     private void WeekData()
@@ -645,12 +556,6 @@ public partial class StatisticsViewModel : ObservableObject
         {
             TotalExpense += expenseCollection[i].Amount;
         }
-    }
-
-    [RelayCommand]
-    private async void TransactionDetail()
-    {
-        await Shell.Current.GoToAsync(nameof(EReceiptPage));
     }
 
 }

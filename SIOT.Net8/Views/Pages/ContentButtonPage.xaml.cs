@@ -9,7 +9,7 @@
 
         private void StarButtonClicked(object sender, EventArgs e)
         {
-            Shell.Current.GoToAsync(nameof(ImagePage));
+            //Shell.Current.GoToAsync(nameof(ImagePage));
         }
     }
 }

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SIOT.Views.Onboardings.DemoStartPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SIOT.Controls"
+    xmlns:localization="clr-namespace:SIOT.Resources.Translations"
+    Title=""
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False"
+    Shell.PresentationMode="Animated">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <!--  Background Gradient  -->
+        <Grid Grid.RowSpan="2" Opacity="1">
+            <Grid.Background>
+                <LinearGradientBrush>
+                    <GradientStop Offset="0.1"
+                                  Color="#2566dc" />
+                    <GradientStop Offset="1.0"
+                                  Color="#2566dc" />
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+
+        <!--  Background Image  -->
+        <Image
+            Margin="-5,-20,-5,0"
+            Aspect="AspectFill"
+            Opacity="1"
+            Rotation="180"
+            Source="main_bg.svg"
+            VerticalOptions="End" />
+
+        <VerticalStackLayout
+            Padding="30"
+            HorizontalOptions="Fill"
+            Spacing="20"
+            VerticalOptions="Center">
+            <Image
+                BackgroundColor="Transparent"
+                HeightRequest="150"
+                HorizontalOptions="Center"
+                Source="wallet_payment.png"
+                VerticalOptions="Center" />
+
+            <Label
+                Margin="0,15,0,0"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource Title2}"
+                Text="SINOL"
+                TextColor="{DynamicResource White}" />
+
+            <Label
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource PrimaryLabel}"
+                   Text="为优质生活提供领先技术和专业服务"
+                TextColor="{DynamicResource White}" />
+
+            <Border
+                Padding="15,5"
+                BackgroundColor="{DynamicResource White}"
+                HorizontalOptions="Center"
+                Stroke="Transparent"
+                StrokeShape="{RoundRectangle CornerRadius='8'}">
+                <Label
+                    FontSize="12"
+                    HorizontalOptions="Center"
+                    Text="IOT 1.0"
+                    TextColor="{DynamicResource PrimaryColor}"
+                    VerticalOptions="Center" />
+            </Border>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout
+            Grid.Row="1"
+            Padding="30,0,30,50"
+            HorizontalOptions="Fill"
+            Spacing="15"
+            VerticalOptions="End">
+            <!--<Button
+                BackgroundColor="Transparent"
+                BorderColor="{DynamicResource White}"
+                BorderWidth="1"
+                Clicked="TakeTour_Clicked"
+                CornerRadius="14"
+                FontAttributes="Bold"
+                FontSize="14"
+                HeightRequest="50"
+                Text="{localization:Translate ButtonTakeTour}"
+                TextColor="{DynamicResource White}" />-->
+
+            <Button BackgroundColor="#f2f5fc"
+                    BorderColor="#f2f5fc"
+                Clicked="Skip_Clicked"
+                CornerRadius="14"
+                FontSize="16"
+                HeightRequest="50"
+                Text="跳过"
+                    TextColor="#2566dc" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

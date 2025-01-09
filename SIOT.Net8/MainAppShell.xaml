@@ -80,43 +80,16 @@
                 </core:ContentButton>
 
                 <!--  Page Title  -->
-                <Label
-                    Grid.Column="0"
-                    Grid.ColumnSpan="5"
-                    Margin="20,0"
-                    FontAttributes="Bold"
-                    FontSize="19"
-                    HorizontalOptions="Center"
-                    HorizontalTextAlignment="Center"
-                    Text="{Binding Source={x:Reference mainAppShell}, Path=CurrentPage.Title}"
-                    TextColor="{DynamicResource BaseIconColor}"
-                    VerticalOptions="Center" />
-
-                <!--<core:ContentButton
-                    x:Name="designButton"
-                    Grid.Column="3"
-                    Background="Transparent"
-                    Clicked="ShowPopoverButtonClicked"
-                    VerticalOptions="Center">
-                    <core:Popover.AttachedPopover>
-                        <controls:ListPopover
-                            x:Name="designLanguagesListPopover"
-                            ItemSelected="DesignLanguagesListPopoverItemSelected"
-                            MaximumWidthRequest="280"
-                            MinimumWidthRequest="112" />
-                    </core:Popover.AttachedPopover>
-
-                    <core:Icon Style="{StaticResource AppBarIcon}">
-                        <core:Icon.Source>
-                            <FontImageSource
-                                FontFamily="FontAwesomeSolid"
-                                Glyph="&#xf53f;"
-                                Size="44"
-                                             Color="#2566dc" />
-                        </core:Icon.Source>
-                    </core:Icon>
-                </core:ContentButton>-->
-
+                <Label Grid.Column="0"
+                       Grid.ColumnSpan="5"
+                       Margin="20,0"
+                       FontAttributes="Bold"
+                       FontSize="19"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding Source={x:Reference mainAppShell}, Path=CurrentPage.Title}"
+                       TextColor="{DynamicResource BaseIconColor}"
+                       VerticalOptions="Center" />
                 <core:ContentButton
                     x:Name="toolbarItemsButton"
                     Grid.Column="4"
@@ -221,9 +194,9 @@
          Icon="action_empty.png">
         <ShellContent Title="设备"
                       controls:SimpleShellIcon.SelectedIcon="action_filled.png"
-                      ContentTemplate="{DataTemplate views:BillPaymentPage}"
+                      ContentTemplate="{DataTemplate views:DevicePage}"
                       Icon="action_empty.png"
-                      Route="BillPaymentPage" />
+                      Route="DevicePage" />
     </Tab>
     
     <Tab

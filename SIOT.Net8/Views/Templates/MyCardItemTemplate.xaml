@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SIOT.Views.Templates.MyCardItemTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid>
+        <Border
+            Padding="0"
+            HeightRequest="200"
+            StrokeShape="{RoundRectangle CornerRadius='16'}">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="1,0">
+                    <GradientStop Offset="0.1" Color="{Binding BackgroundGradientStart}" />
+                    <GradientStop Offset="1.0" Color="{Binding BackgroundGradientEnd}" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Image
+                    Aspect="AspectFill"
+                    Opacity="0.3"
+                    Source="{Binding BackgroundImage}"
+                    VerticalOptions="Center" />
+
+                <Grid
+                    Margin="10"
+                    Padding="10"
+                    RowDefinitions="Auto, Auto, *"
+                    RowSpacing="27">
+
+                    <!--  Card Type  -->
+                    <Label
+                        Grid.Row="0"
+                        Margin="0,3"
+                        FontSize="14"
+                        HorizontalOptions="Start"
+                        Text="{Binding CardType}"
+                        TextColor="{DynamicResource OverImageTextColor}"
+                        VerticalOptions="Center" />
+
+                    <!--  Icon displaying card type  -->
+                    <Image
+                        Grid.Row="0"
+                        HeightRequest="27"
+                        HorizontalOptions="End"
+                        Source="{Binding CardTypeIcon}"
+                        VerticalOptions="Start"
+                        WidthRequest="45" />
+
+                    <!--  Card Number  -->
+                    <Label
+                        Grid.Row="1"
+                        FontFamily="BoldFont"
+                        FontSize="20"
+                        HorizontalOptions="Start"
+                        LineHeight="{OnPlatform Default=-1,
+                                                Android=1.5}"
+                        Text="{Binding Number}"
+                        TextColor="{DynamicResource OverImageTextColor}" />
+
+                    <FlexLayout
+                        Grid.Row="2"
+                        AlignContent="Stretch"
+                        JustifyContent="SpaceBetween">
+                        <!--  Card Holder Name  -->
+                        <StackLayout Spacing="0">
+                            <Label
+                                FontFamily="BoldFont"
+                                FontSize="12"
+                                LineHeight="{OnPlatform Default=-1,
+                                                        Android=1.5}"
+                                Text="Card Holder"
+                                TextColor="{DynamicResource OverImageTextColor}" />
+                            <Label
+                                FontSize="14"
+                                HorizontalOptions="Start"
+                                Style="{StaticResource Title1}"
+                                Text="{Binding Name}"
+                                TextColor="{DynamicResource OverImageTextColor}" />
+                        </StackLayout>
+
+                        <!--  Card Expiry  -->
+                        <StackLayout HorizontalOptions="Center" Spacing="0">
+                            <Label
+                                FontFamily="MediumFont"
+                                FontSize="12"
+                                LineHeight="{OnPlatform Default=-1,
+                                                        Android=1.5}"
+                                Text="Expires"
+                                TextColor="{DynamicResource OverImageTextColor}" />
+                            <Label
+                                FontSize="14"
+                                HorizontalOptions="Start"
+                                Style="{StaticResource Title2}"
+                                Text="{Binding Expiry}"
+                                TextColor="{DynamicResource OverImageTextColor}" />
+                        </StackLayout>
+
+                        <!--  Card Cvv Number  -->
+                        <StackLayout HorizontalOptions="Center" Spacing="0">
+                            <Label
+                                FontFamily="MediumFont"
+                                FontSize="12"
+                                LineHeight="{OnPlatform Default=-1,
+                                                        Android=1.5}"
+                                Text="CVV"
+                                TextColor="{DynamicResource OverImageTextColor}" />
+                            <Label
+                                FontSize="14"
+                                HorizontalOptions="Start"
+                                Style="{StaticResource Title2}"
+                                Text="{Binding CardCvv}"
+                                TextColor="{DynamicResource OverImageTextColor}" />
+                        </StackLayout>
+                    </FlexLayout>
+
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentView>

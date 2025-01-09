@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="SIOT.Views.DevicePage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SIOT.Controls"
+             xmlns:helpers="clr-namespace:SIOT.Helpers"
+             xmlns:local="clr-namespace:SIOT"
+             xmlns:models="clr-namespace:SIOT.Models"
+             xmlns:viewmodels="clr-namespace:SIOT.ViewModels"
+             xmlns:views="clr-namespace:SIOT.Views"
+             Title="器械仪表盘">
+
+
+    <ScrollView>
+        <Grid Padding="20"
+              BackgroundColor="#f2f5fc"
+              RowDefinitions="100,*,50,Auto"
+              RowSpacing="0">
+
+
+            <Grid Grid.Row="0"
+                  Margin="0,10,0,0"
+                  ColumnDefinitions="1*,1*,1*,1*">
+                
+                <!--亮度调节-->
+                <StackLayout Grid.Column="0"
+                             HorizontalOptions="Center"
+                             Spacing="5">
+
+                    <Border Padding="5"
+                            BackgroundColor="#2566dc"
+                            HeightRequest="60"
+                            HorizontalOptions="Start"
+                            Stroke="Transparent"
+                            StrokeShape="{RoundRectangle CornerRadius='20'}"
+                            TranslationY="0"
+                            VerticalOptions="Center"
+                            WidthRequest="60">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShowCotrolCommand}"
+                                                  CommandParameter="1" />
+                        </Border.GestureRecognizers>
+                        <Label FontFamily="MauiKitIcons"
+                               FontSize="{OnIdiom Phone='30',
+                                  Tablet='35',
+                                  Desktop='30'}"
+                               HorizontalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Center"
+                               Opacity="1"
+                               Text="{x:Static views:MauiKitIcons.LightbulbOn}"
+                               TextColor="#ffffff"
+                               VerticalOptions="CenterAndExpand">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding ShowTab1}"
+                                             Value="True">
+                                    <Setter Property="TextColor"
+                                            Value="#ffffff" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding ShowTab1}"
+                                             Value="False">
+                                    <Setter Property="TextColor"
+                                            Value="#2566dc" />
+                                </DataTrigger>
+
+                            </Label.Triggers>
+                        </Label>
+                        <Border.Triggers>
+                            <DataTrigger TargetType="Border"
+                                         Binding="{Binding ShowTab1}"
+                                         Value="True">
+                                <Setter Property="BackgroundColor"
+                                        Value="#2566dc" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border"
+                                         Binding="{Binding ShowTab1}"
+                                         Value="False">
+                                <Setter Property="BackgroundColor"
+                                        Value="#ffffff" />
+                            </DataTrigger>
+
+                        </Border.Triggers>
+                    </Border>
+                    <Label HorizontalOptions="Center"
+                           Text="光纤亮度"
+                           TextColor="#6b7598">
+                    </Label>
+                </StackLayout>
+                
+                <!--加热-->
+                <StackLayout Grid.Column="1"
+                             HorizontalOptions="Center"
+                             Spacing="5">
+
+                    <Border Padding="5"
+                            BackgroundColor="#ffffff"
+                            HeightRequest="60"
+                            HorizontalOptions="Start"
+                            Stroke="Transparent"
+                            StrokeShape="{RoundRectangle CornerRadius='20'}"
+                            TranslationY="0"
+                            VerticalOptions="Center"
+                            WidthRequest="60">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShowCotrolCommand}"
+                                                  CommandParameter="2" />
+                        </Border.GestureRecognizers>
+                        <Label FontFamily="MauiKitIcons"
+                               FontSize="{OnIdiom Phone='30',
+           Tablet='35',
+           Desktop='30'}"
+                               HorizontalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Center"
+                               Opacity="1"
+                               Text="{x:Static views:MauiKitIcons.HotTub}"
+                               TextColor="#ffffff"
+                               VerticalOptions="CenterAndExpand">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding ShowTab2}"
+                                             Value="True">
+                                    <Setter Property="TextColor"
+                                            Value="#ffffff" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding ShowTab2}"
+                                             Value="False">
+                                    <Setter Property="TextColor"
+                                            Value="#2566dc" />
+                                </DataTrigger>
+
+                            </Label.Triggers>
+                        </Label>
+                        <Border.Triggers>
+                            <DataTrigger TargetType="Border"
+                                         Binding="{Binding ShowTab2}"
+                                         Value="True">
+                                <Setter Property="BackgroundColor"
+                                        Value="#2566dc" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border"
+                                         Binding="{Binding ShowTab2}"
+                                         Value="False">
+                                <Setter Property="BackgroundColor"
+                                        Value="#ffffff" />
+                            </DataTrigger>
+
+                        </Border.Triggers>
+                    </Border>
+                    <Label HorizontalOptions="Center"
+                           Text="杯水加热"
+                           TextColor="#6b7598" />
+                </StackLayout>
+                
+                <!--转速-->
+                <StackLayout Grid.Column="2"
+                             HorizontalOptions="Center"
+                             Spacing="5">
+
+                    <Border Padding="5"
+                            BackgroundColor="#ffffff"
+                            HeightRequest="60"
+                            HorizontalOptions="Start"
+                            Stroke="Transparent"
+                            StrokeShape="{RoundRectangle CornerRadius='20'}"
+                            TranslationY="0"
+                            VerticalOptions="Center"
+                            WidthRequest="60">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShowCotrolCommand}"
+                                                  CommandParameter="3" />
+                        </Border.GestureRecognizers>
+                        <Label FontFamily="MauiKitIcons"
+                               FontSize="{OnIdiom Phone='30',
+                                  Tablet='35',
+                                  Desktop='30'}"
+                               HorizontalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Center"
+                               Opacity="1"
+                               Text="{x:Static views:MauiKitIcons.Fan}"
+                               TextColor="{DynamicResource PrimaryColor}"
+                               VerticalOptions="CenterAndExpand">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding ShowTab3}"
+                                             Value="True">
+                                    <Setter Property="TextColor"
+                                            Value="#ffffff" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding ShowTab3}"
+                                             Value="False">
+                                    <Setter Property="TextColor"
+                                            Value="#2566dc" />
+                                </DataTrigger>
+
+                            </Label.Triggers>
+                        </Label>
+                        <Border.Triggers>
+                            <DataTrigger TargetType="Border"
+                                         Binding="{Binding ShowTab3}"
+                                         Value="True">
+                                <Setter Property="BackgroundColor"
+                                        Value="#2566dc" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border"
+                                         Binding="{Binding ShowTab3}"
+                                         Value="False">
+                                <Setter Property="BackgroundColor"
+                                        Value="#ffffff" />
+                            </DataTrigger>
+
+                        </Border.Triggers>
+                    </Border>
+                    <Label HorizontalOptions="Center"
+                           Text="手机转速"
+                           TextColor="#6b7598" />
+                </StackLayout>
+                
+                <!--功率-->
+                <StackLayout Grid.Column="3"
+                             HorizontalOptions="Center"
+                             Spacing="5">
+
+                    <Border Padding="5"
+                            BackgroundColor="#ffffff"
+                            HeightRequest="60"
+                            HorizontalOptions="Start"
+                            Stroke="Transparent"
+                            StrokeShape="{RoundRectangle CornerRadius='20'}"
+                            TranslationY="0"
+                            VerticalOptions="Center"
+                            WidthRequest="60">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShowCotrolCommand}"
+                                                  CommandParameter="4" />
+                        </Border.GestureRecognizers>
+                        <Label FontFamily="MauiKitIcons"
+                               FontSize="{OnIdiom Phone='30',
+                                  Tablet='35',
+                                  Desktop='30'}"
+                               HorizontalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Center"
+                               Opacity="1"
+                               Text="{x:Static views:MauiKitIcons.Speedometer}"
+                               TextColor="{DynamicResource PrimaryColor}"
+                               VerticalOptions="CenterAndExpand">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding ShowTab4}"
+                                             Value="True">
+                                    <Setter Property="TextColor"
+                                            Value="#ffffff" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding ShowTab4}"
+                                             Value="False">
+                                    <Setter Property="TextColor"
+                                            Value="#2566dc" />
+                                </DataTrigger>
+
+                            </Label.Triggers>
+                        </Label>
+                        <Border.Triggers>
+                            <DataTrigger TargetType="Border"
+                                         Binding="{Binding ShowTab4}"
+                                         Value="True">
+                                <Setter Property="BackgroundColor"
+                                        Value="#2566dc" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border"
+                                         Binding="{Binding ShowTab4}"
+                                         Value="False">
+                                <Setter Property="BackgroundColor"
+                                        Value="#ffffff" />
+                            </DataTrigger>
+
+                        </Border.Triggers>
+                    </Border>
+                    <Label HorizontalOptions="Center"
+                           Text="马达功率"
+                           TextColor="#6b7598" />
+                </StackLayout>
+                
+            </Grid>
+
+
+            <!--亮度调节-->
+            <Grid Grid.Row="1"
+                  BackgroundColor="Transparent"
+                  RowSpacing="0"
+                  RowDefinitions="*,Auto"
+                  IsVisible="{Binding ShowTab1}">
+
+                <controls:SpeederView Grid.Row="0"
+                                      Margin="0,20,0,0"
+                                      BindingContext="{x:Reference mySlider}"
+                                      Speed="{Binding Path=Value}" />
+
+                <StackLayout Grid.Row="1"
+                             Spacing="0"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Start"
+                             Margin="0,0,0,0">
+                    <Label FontAttributes="Bold"
+                           FontSize="35"
+                           HorizontalOptions="Center"
+                           BindingContext="{x:Reference mySlider}"
+                           Text="{Binding Path=Value, StringFormat='{0:N2}'}"
+                           TextColor="#171e48" />
+                    <Label FontSize="35"
+                           Text="lm"
+                           Margin="5,0,0,0"
+                           HorizontalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#cdccd2" />
+                </StackLayout>
+
+            </Grid>
+
+            <!--加热-->
+            <Grid Grid.Row="1"
+                  BackgroundColor="Transparent"
+                  RowSpacing="0"
+                  RowDefinitions="*"
+                  IsVisible="{Binding ShowTab2}">
+
+                <VerticalStackLayout Grid.Row="0"
+                                     Spacing="25"
+                                     Padding="30,0"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Margin="0,0,0,0">
+
+                    <controls:GaugeView GaugeType="Curved"
+                                        GaugeValue="{Binding DemoNumber}"
+                                        GaugeColor="{Binding GaugeColor}"
+                                        GaugeUnit="℃"
+                                        GaugeMinimum="0"
+                                        GaugeMaximum="40" />
+
+                    <!--<Label FontAttributes="Bold"
+                           FontSize="35"
+                           HorizontalOptions="Center"
+                           BindingContext="{x:Reference mySlider}"
+                           Text="{Binding Path=Value, StringFormat='{0:N2}'}"
+                           TextColor="#171e48" />
+                    
+                    <Label FontSize="35"
+                           Text="℃"
+                           Margin="5,0,0,0"
+                           HorizontalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#cdccd2" />-->
+
+                    <Button x:Name="CounterPlusBtn"
+                            FontSize="25"
+                            CornerRadius="15"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            FontFamily="MauiKitIcons"
+                            TextColor="#ffffff"
+                            Text="{x:Static views:MauiKitIcons.ArrowUp}"
+                            Command="{Binding IncreaseDemoNumberCommand}"
+                            HorizontalOptions="Center"
+                            BackgroundColor="#2566dc"/>
+                    
+                    <Button x:Name="CounterMinusBtn"
+                            FontSize="25"
+                            CornerRadius="15"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            FontFamily="MauiKitIcons"
+                            TextColor="#ffffff"
+                            Text="{x:Static views:MauiKitIcons.ArrowDown}"
+                            Command="{Binding DecreaseDemoNumberCommand}"
+                            HorizontalOptions="Center"
+                            BackgroundColor="#2566dc" />
+                    
+                </VerticalStackLayout>
+
+            </Grid>
+
+            <!--转速-->
+            <Grid Grid.Row="1"
+                  BackgroundColor="Transparent"
+                  RowSpacing="0"
+                  RowDefinitions="*,Auto"
+                  IsVisible="{Binding ShowTab3}">
+
+                <controls:SpeedometerView Grid.Row="0"
+                                          MaxSpeed="20000"
+                                          Margin="0,20,0,0"
+                                          BindingContext="{x:Reference mySlider}"
+                                          Speed="{Binding Path=Value}" />
+
+                <StackLayout Grid.Row="1"
+                             Spacing="0"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Start"
+                             Margin="0,0,0,0">
+                    <Label FontAttributes="Bold"
+                           FontSize="35"
+                           HorizontalOptions="Center"
+                           BindingContext="{x:Reference mySlider}"
+                           Text="{Binding Path=Value, StringFormat='{0:N2}'}"
+                           TextColor="#171e48" />
+                    <Label FontSize="35"
+                           Text="rpm"
+                           Margin="5,0,0,0"
+                           HorizontalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#cdccd2" />
+                </StackLayout>
+
+            </Grid>
+
+            <!--功率-->
+            <Grid Grid.Row="1"
+                  BackgroundColor="Transparent"
+                  RowSpacing="0"
+                  RowDefinitions="*"
+                  IsVisible="{Binding ShowTab4}">
+
+                <!--<controls:SpeedometerView Grid.Row="0"
+                                          Margin="0,20,0,0"
+                                          BindingContext="{x:Reference mySlider}"
+                                          Speed="{Binding Path=Value}" />-->
+
+                <controls:RadialGauge Grid.Row="0"
+                                      GaugeArcThickness="10"
+                                      BindingContext="{x:Reference mySlider}"
+                                      HeightRequest="300"
+                                      HorizontalOptions="Center"
+                                      LabelFontSize="20"
+                                      MaxValue="100"
+                                      MinValue="0"
+                                      Unit="%"
+                                      NeedleColor="#2566dc"
+                                      GaugeBackgroundColor="#d0d7e6"
+                                      BackgroundColor="#d0d7e6"
+                                      LabelFontColor="#2566dc"
+                                      GaugeFillColor="#2566dc"
+                                      AlertFillColor="#2566dc"
+                                      NeedleLength=".5"
+                                      NeedleThickness="5"
+                                      TickLength="5"
+                                      WidthRequest="400"
+                                      Value="{Binding Path=Value}" />
+
+
+                <!--<StackLayout Grid.Row="1"
+                             Spacing="0"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Start"
+                             Margin="0,0,0,0">
+                    <Label FontAttributes="Bold"
+                           FontSize="35"
+                           HorizontalOptions="Center"
+                           BindingContext="{x:Reference mySlider}"
+                           Text="{Binding Path=Value, StringFormat='{0:N2}'}"
+                           TextColor="#171e48" />
+                    <Label FontSize="35"
+                           Text="%"
+                           Margin="5,0,0,0"
+                           HorizontalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#cdccd2" />
+                </StackLayout>-->
+
+            </Grid>
+            
+            <Slider Grid.Row="2"
+                    x:Name="mySlider"
+                    Maximum="{Binding SliderMax}"
+                    Margin="0,0,0,0" />
+
+            <Grid Grid.Row="3"
+                  RowDefinitions="*"
+                  ColumnDefinitions="*,*"
+                  ColumnSpacing="15">
+
+                <Border Grid.Row="0"
+                        Grid.Column="0"
+                        Padding="20"
+                        BackgroundColor="#2566dc"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill"
+                        Stroke="Transparent"
+                        StrokeShape="{RoundRectangle CornerRadius='20'}"
+                        TranslationY="0">
+                    <Border.Shadow>
+                        <Shadow Opacity="0.1"
+                                Offset="2,2"
+                                Radius="0" />
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GotoTransferCommand}" />
+                    </Border.GestureRecognizers>
+
+                    <Grid RowDefinitions="*,*"
+                          ColumnDefinitions="*,*">
+
+                        <Label Grid.Row="0"
+                               Grid.Column="0"
+                               FontFamily="MauiKitIcons"
+                               FontSize="{OnIdiom Phone='35',Tablet='35',Desktop='30'}"
+                               HorizontalOptions="Start"
+                               HorizontalTextAlignment="Start"
+                               Opacity="1"
+                               Text="{x:Static views:MauiKitIcons.CarCruiseControl}"
+                               TextColor="#ffffff"
+                               VerticalOptions="CenterAndExpand" />
+
+                        <Switch Grid.Row="0"
+                                Grid.Column="1"
+                                OnColor="White"
+                                ThumbColor="White" />
+
+                        <StackLayout Grid.Row="1"
+                                     Grid.Column="0"
+                                     Grid.ColumnSpan="2"
+                                     Margin="0,10,0,0">
+                            <Label HorizontalOptions="Start"
+                                   Text="定速巡航"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="#ffffff" />
+                            <!--口腔冷光灯感应-->
+                            <Label HorizontalOptions="Start"
+                                   Text="Cruise control "
+                                   TextColor="#ffffff" />
+
+                        </StackLayout>
+
+                    </Grid>
+
+                </Border>
+
+                <Border Grid.Row="0"
+                        Grid.Column="1"
+                        Padding="20"
+                        BackgroundColor="#ffffff"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill"
+                        Stroke="Transparent"
+                        StrokeShape="{RoundRectangle CornerRadius='20'}"
+                        TranslationY="0">
+                    <Border.Shadow>
+                        <Shadow Opacity="0.1"
+                                Offset="2,2"
+                                Radius="0" />
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GotoTransferCommand}" />
+                    </Border.GestureRecognizers>
+
+                    <Grid RowDefinitions="*,*"
+                          ColumnDefinitions="*,*">
+
+                        <Label Grid.Row="0"
+                               Grid.Column="0"
+                               FontFamily="MauiKitIcons"
+                               FontSize="{OnIdiom Phone='35',Tablet='35',Desktop='30'}"
+                               HorizontalOptions="Start"
+                               HorizontalTextAlignment="Start"
+                               Opacity="1"
+                               Text="{x:Static views:MauiKitIcons.LockSmart}"
+                               TextColor="#2566dc"
+                               VerticalOptions="CenterAndExpand" />
+
+                        <Switch Grid.Row="0"
+                                Grid.Column="1"
+                                OnColor="#2566dc"
+                                ThumbColor="#2566dc" />
+
+                        <StackLayout Grid.Row="1"
+                                     Grid.Column="0"
+                                     Grid.ColumnSpan="2"
+                                     Margin="0,10,0,0">
+                            <Label HorizontalOptions="Start"
+                                   Text="脚踏锁定"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="#2566dc" />
+                            <!--口腔冷光灯感应-->
+                            <Label HorizontalOptions="Start"
+                                   Text="Foot lock"
+                                   TextColor="#2566dc" />
+
+                        </StackLayout>
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SIOT.Views.Templates.TransactionItemTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:SIOT.Converters"
+    xmlns:views="clr-namespace:SIOT.Views">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:BooleanToColorConverter x:Key="BooleanToColorConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <VerticalStackLayout Spacing="15">
+        <Grid ColumnDefinitions="40, *, Auto" ColumnSpacing="12">
+            <Border
+                Padding="5"
+                BackgroundColor="#EAEEF6"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                Stroke="Transparent"
+                StrokeShape="{RoundRectangle CornerRadius='20'}"
+                TranslationY="0"
+                VerticalOptions="Center"
+                WidthRequest="40">
+                <Label
+                    FontFamily="MauiKitIcons"
+                    FontSize="{OnIdiom Phone='20',
+                                       Tablet='25',
+                                       Desktop='30'}"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Opacity="1"
+                    Text="{Binding ImageIcon}"
+                    TextColor="{Binding IconColor}"
+                    VerticalOptions="CenterAndExpand" />
+            </Border>
+
+            <StackLayout Grid.Column="1">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    Text="{Binding Title}"
+                    TextColor="{DynamicResource BaseTextColor}" />
+                <Label
+                    FontSize="14"
+                    Text="{Binding Date}"
+                    TextColor="{DynamicResource BaseLightTextColor}" />
+            </StackLayout>
+
+            <Label
+                Grid.Column="2"
+                FontAttributes="Bold"
+                FontSize="15"
+                Text="{Binding Amount, StringFormat='${0:N2}'}"
+                TextColor="{Binding IsCredited, Converter={x:StaticResource BooleanToColorConverter}, ConverterParameter=5}"
+                VerticalOptions="Center" />
+        </Grid>
+
+        <Rectangle Fill="{DynamicResource BaseSeparatorColor}" HeightRequest="1" />
+    </VerticalStackLayout>
+</ContentView>

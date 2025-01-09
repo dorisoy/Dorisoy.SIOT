@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SIOT.Views.Templates.ServiceItemTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <VerticalStackLayout
+        Grid.Column="1"
+        HorizontalOptions="Center"
+        Spacing="5">
+        <Border
+            Padding="5"
+            BackgroundColor="#EAEEF6"
+            HeightRequest="60"
+            HorizontalOptions="Start"
+            Stroke="Transparent"
+            StrokeShape="{RoundRectangle CornerRadius='30'}"
+            TranslationY="0"
+            VerticalOptions="Center"
+            WidthRequest="60">
+            <Label
+                FontFamily="MauiKitIcons"
+                FontSize="{OnIdiom Phone='30',
+                                   Tablet='35',
+                                   Desktop='30'}"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Opacity="1"
+                Text="{Binding Icon}"
+                TextColor="{DynamicResource PrimaryColor}"
+                VerticalOptions="CenterAndExpand" />
+        </Border>
+        <Label HorizontalOptions="Center" Text="{Binding Name}" />
+    </VerticalStackLayout>
+</ContentView>

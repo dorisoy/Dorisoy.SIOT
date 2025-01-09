@@ -12,8 +12,6 @@ public partial class LoginViewModel : ObservableObject
     {
         Application.Current.MainPage = MauiProgram.UsedAppShell switch
         {
-            //AppShellType.Normal => new NormalAppShell(),
-            AppShellType.Sample => new SampleAppShell(),
             _ => new MainAppShell()
         };
     }

@@ -127,7 +127,6 @@ namespace SIOT
 
         private static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
         {
-            mauiAppBuilder.Services.AddTransient<LoginFingerPrintPage>();
             mauiAppBuilder.Services.AddTransient<LoginStyle1Page>();
             mauiAppBuilder.Services.AddTransient<MainAppShell>();
 
@@ -136,7 +135,6 @@ namespace SIOT
 
         private static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
         {
-            mauiAppBuilder.Services.AddTransient<LoginFingerPrintViewModel>();
             mauiAppBuilder.Services.AddTransient<LoginViewModel>();
 
             return mauiAppBuilder;

@@ -4,6 +4,7 @@ internal enum AppShellType
 {
     Normal, Sample, Main
 }
+
 public partial class App : Application
 {
     public App()
@@ -77,7 +78,7 @@ public partial class App : Application
         else
             MainPage = MauiProgram.UsedAppShell switch
             {
-                AppShellType.Sample => new SampleAppShell(),
+               // AppShellType.Sample => new SampleAppShell(),
                 _ => new MainAppShell()
             };
     }

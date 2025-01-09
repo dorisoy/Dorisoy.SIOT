@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SIOT.Views.AccountPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:views="clr-namespace:SIOT.Views"
+    x:Name="profilePage"
+    Title="系统设置"
+             BackgroundColor="#f2f5fc"
+    Shell.NavBarIsVisible="True">
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto">
+
+            <StackLayout Margin="20,15,20,0">
+                <Border
+                    Grid.Column="0"
+                    Background="Transparent"
+                    HorizontalOptions="Center"
+                    Stroke="{DynamicResource PrimaryColor}"
+                    StrokeShape="RoundRectangle 40"
+                    StrokeThickness="0">
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="80"
+                        Source="logo.png"
+                        WidthRequest="80" />
+                </Border>
+
+                <StackLayout Margin="20,10">
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource Title2}"
+                        Text="Sinol"
+                        VerticalTextAlignment="Center" />
+                    <Label
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                           Text="master@sinol.cn"
+                        TextColor="{DynamicResource PrimaryColor}"
+                        VerticalTextAlignment="Center" />
+                </StackLayout>
+            </StackLayout>
+
+            <!--  OPTIONS  -->
+            <StackLayout Grid.Row="1" Margin="20,10">
+                <!--<Label
+                    FontSize="17"
+                    HorizontalOptions="Start"
+                    Style="{StaticResource SubTitle}"
+                    Text="账户配置"
+                    TextColor="{DynamicResource BaseTextColor}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />-->
+
+                <HorizontalStackLayout VerticalOptions="Center">
+                    <Border WidthRequest="10"
+                            HeightRequest="18"
+                            Background="#2566dc"
+                            BackgroundColor="#2566dc"
+                            VerticalOptions="Center"
+                            Margin="0,-4,0,0" />
+                    <Label FontAttributes="Bold"
+                           FontFamily="BoldFont"
+                           FontSize="18"
+                           Text="账户配置"
+                           TextColor="{DynamicResource BaseTextColor}"
+                           Margin="5,10,0,10"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <StackLayout
+                    Margin="0,5,0,8"
+                    BackgroundColor="{DynamicResource BaseSeparatorColor}"
+                    HeightRequest="1" />
+
+                <!--  Update Profile  -->
+                <Grid Padding="0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        FontFamily="MauiKitIcons"
+                        FontSize="22"
+                        HorizontalOptions="Start"
+                        Text="{x:Static views:MauiKitIcons.AccountEdit}"
+                        TextColor="{DynamicResource PrimaryColor}"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="1"
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        Text="资料"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        Grid.Column="2"
+                        FontFamily="IonIcons"
+                        FontSize="15"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static views:IonIcons.ChevronRight}"
+                        TextColor="{DynamicResource BaseIconColor}"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateAccountCommand}" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Rectangle Fill="{DynamicResource BaseSeparatorColor}" HeightRequest="1" />
+
+                <!--  Support Center  -->
+                <Grid Padding="0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        FontFamily="MauiKitIcons"
+                        FontSize="22"
+                        HorizontalOptions="Start"
+                        Text="{x:Static views:MauiKitIcons.HelpCircle}"
+                        TextColor="{DynamicResource PrimaryColor}"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="1"
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        Text="支持中心"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        Grid.Column="2"
+                        FontFamily="IonIcons"
+                        FontSize="15"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static views:IonIcons.ChevronRight}"
+                        TextColor="{DynamicResource BaseIconColor}"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Rectangle Fill="{DynamicResource BaseSeparatorColor}" HeightRequest="1" />
+
+                <!--  Privacy Policy  -->
+                <Grid Padding="0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        FontFamily="MauiKitIcons"
+                        FontSize="22"
+                        HorizontalOptions="Start"
+                        Text="{x:Static views:MauiKitIcons.Security}"
+                        TextColor="{DynamicResource PrimaryColor}"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="1"
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                           Text="隐私政策"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        Grid.Column="2"
+                        FontFamily="IonIcons"
+                        FontSize="15"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static views:IonIcons.ChevronRight}"
+                        TextColor="{DynamicResource BaseIconColor}"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GotoPrivacyCommand}" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Rectangle Fill="{DynamicResource BaseSeparatorColor}" HeightRequest="1" />
+
+                <!--  Delete Account  -->
+                <Grid Padding="0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        FontFamily="MauiKitIcons"
+                        FontSize="22"
+                        HorizontalOptions="Start"
+                        Text="{x:Static views:MauiKitIcons.AccountRemove}"
+                        TextColor="{DynamicResource PrimaryColor}"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="1"
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        Text="删除账户"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        Grid.Column="2"
+                        FontFamily="IonIcons"
+                        FontSize="15"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static views:IonIcons.ChevronRight}"
+                        TextColor="{DynamicResource BaseIconColor}"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Rectangle Fill="{DynamicResource BaseSeparatorColor}" HeightRequest="1" />
+            </StackLayout>
+
+            <!--  SETTINGS  -->
+            <StackLayout
+                Grid.Row="2"
+                Margin="20,10"
+                Spacing="5"
+                VerticalOptions="Fill">
+                <!--<Label
+                    FontSize="17"
+                    HorizontalOptions="Start"
+                    Style="{StaticResource SubTitle}"
+                    Text="高级配置"
+                    TextColor="{DynamicResource BaseTextColor}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />-->
+
+                <HorizontalStackLayout VerticalOptions="Center">
+                    <Border WidthRequest="10"
+                            HeightRequest="18"
+                            Background="#2566dc"
+                            BackgroundColor="#2566dc"
+                            VerticalOptions="Center"
+                            Margin="0,-4,0,0" />
+                    <Label FontAttributes="Bold"
+                           FontFamily="BoldFont"
+                           FontSize="18"
+                           Text="高级配置"
+                           TextColor="{DynamicResource BaseTextColor}"
+                           Margin="5,10,0,10"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <StackLayout
+                    Margin="0,5,0,8"
+                    BackgroundColor="{DynamicResource BaseSeparatorColor}"
+                    HeightRequest="1" />
+
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        Text="主题"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                    <Switch
+                        Grid.Column="1"
+                        HorizontalOptions="End"
+                        IsToggled="{Binding IsDarkMode}" />
+                </Grid>
+
+                <Rectangle Fill="{DynamicResource BaseSeparatorColor}" HeightRequest="1" />
+
+                <!--  Not available  -->
+                <Grid ColumnDefinitions="*,Auto" IsVisible="False">
+                    <Label
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                    <Switch
+                        Grid.Column="1"
+                        HorizontalOptions="End"
+                        IsToggled="{Binding IsRTL}" />
+                </Grid>
+
+                <Rectangle
+                    Fill="{DynamicResource BaseSeparatorColor}"
+                    HeightRequest="1"
+                    IsVisible="False" />
+
+                <Grid ColumnDefinitions="*,Auto"
+                      IsVisible="False">
+                    <Label
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                    <Switch
+                        Grid.Column="1"
+                        HorizontalOptions="End"
+                        IsToggled="True" />
+                </Grid>
+
+                <Rectangle Fill="{DynamicResource BaseSeparatorColor}"
+                           HeightRequest="1"
+                           IsVisible="False" />
+
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        Text="启用位置"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                    <Switch Grid.Column="1" HorizontalOptions="End" />
+                </Grid>
+
+                <Rectangle Fill="{DynamicResource BaseSeparatorColor}" HeightRequest="1" />
+
+                <Grid
+                    Margin="30"
+                    ColumnDefinitions="Auto, *"
+                    HorizontalOptions="Center">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+                    </Grid.GestureRecognizers>
+                    <Label
+                        FontFamily="MaterialDesign"
+                        FontSize="25"
+                        HorizontalOptions="Center"
+                        Text="{x:Static views:MaterialDesignIcons.ExitToApp}"
+                        TextColor="{DynamicResource Red}"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="12,0"
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource Title2}"
+                        Text="注销"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                </Grid>
+
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

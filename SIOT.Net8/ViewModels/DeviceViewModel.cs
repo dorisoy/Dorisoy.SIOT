@@ -1,12 +1,12 @@
 ﻿namespace SIOT.ViewModels;
 
-public partial class BillPaymentViewModel : ObservableObject
+public partial class DeviceViewModel : ObservableObject
 {
     public ICommand ShowCotrolCommand { get; }
     public ICommand IncreaseDemoNumberCommand { get; }
     public ICommand DecreaseDemoNumberCommand { get; }
 
-    public BillPaymentViewModel()
+    public DeviceViewModel()
     {
         ShowTab1 = true;
         ShowCotrolCommand = new RelayCommand<string?>(ShowCotrol);
@@ -15,11 +15,6 @@ public partial class BillPaymentViewModel : ObservableObject
         sliderMax = 180;
     }
 
-    [RelayCommand]
-    private async void PayNow()
-    {
-        await Shell.Current.GoToAsync(nameof(BillPaymentConfirmPage));
-    }
 
     [ObservableProperty]
     private bool _showTab1;

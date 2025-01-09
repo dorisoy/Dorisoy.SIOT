@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SIOT.Views.Onboardings.StartPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SIOT.Controls"
+    Title=""
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False"
+    Shell.PresentationMode="Animated">
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <VerticalStackLayout
+            Padding="30,50,30,20"
+            HorizontalOptions="Center"
+            Spacing="20"
+            TranslationY="50"
+            VerticalOptions="Start">
+            <Border
+                Padding="0"
+                BackgroundColor="{DynamicResource PrimaryColor}"
+                HeightRequest="90"
+                HorizontalOptions="Center"
+                Stroke="{DynamicResource White}"
+                StrokeShape="{RoundRectangle CornerRadius=18}"
+                StrokeThickness="3"
+                WidthRequest="90">
+                <controls:RoundedCornerImage
+                    BackgroundColor="{DynamicResource White}"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    Source="logo.png"
+                    Stroke="Transparent"
+                    StrokeShape="{RoundRectangle CornerRadius=50}"
+                    VerticalOptions="Center"
+                    WidthRequest="60" />
+            </Border>
+            <Label
+                FontAttributes="Bold"
+                FontSize="22"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource Title2}"
+                Text="AppName" />
+
+            <Label
+                Margin="0,15,0,0"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource Title2}"
+                Text="WelcomeTitle" />
+
+            <Label
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource PrimaryLabel}"
+                Text="WelcomeSubtitle" />
+
+            <Border
+                Padding="15,5"
+                BackgroundColor="{DynamicResource White}"
+                HorizontalOptions="Center"
+                Stroke="Transparent"
+                StrokeShape="{RoundRectangle CornerRadius='8'}">
+                <Label
+                    FontSize="12"
+                    HorizontalOptions="Center"
+                    Text="Version 2.0"
+                    TextColor="{DynamicResource PrimaryColor}"
+                    VerticalOptions="Center" />
+            </Border>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout
+            Grid.Row="2"
+            Padding="30"
+            HorizontalOptions="Fill"
+            Spacing="15"
+            VerticalOptions="End">
+            <Button
+                Clicked="TakeTour_Clicked"
+                CornerRadius="14"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                Style="{StaticResource PrimaryActionButtonStyle}"
+                Text="TakeTour" />
+
+            <Button
+                BackgroundColor="{DynamicResource BlurBlue}"
+                Clicked="Skip_Clicked"
+                CornerRadius="14"
+                HeightRequest="50"
+                Text="Skip"
+                TextColor="{DynamicResource PrimaryColor}" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

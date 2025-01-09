@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SIOT.Views.LoginStyle1Page"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SIOT.Controls"
+    xmlns:handlers="clr-namespace:SIOT.Handlers"
+    xmlns:views="clr-namespace:SIOT.Views"
+    Title=""
+    BackgroundColor="{DynamicResource BasePageColor}"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--  Back Button  -->
+        <Image
+            Margin="16,20"
+            HeightRequest="30"
+            HorizontalOptions="Start"
+            VerticalOptions="Center">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GoBack_Tapped" />
+            </Image.GestureRecognizers>
+            <Image.Source>
+                <FontImageSource
+                    FontFamily="MauiKitIcons"
+                    Glyph="{x:Static views:MauiKitIcons.ArrowLeft}"
+                    Size="25"
+                    Color="{DynamicResource BaseIconColor}" />
+            </Image.Source>
+        </Image>
+
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  Header  -->
+            <!--<Label
+                FontFamily="BoldFont"
+                FontSize="28"
+                HorizontalOptions="Start"
+                HorizontalTextAlignment="Start"
+                Style="{StaticResource Title1}"
+                Text="登录"
+                TextColor="{DynamicResource BaseTextColor}"
+                VerticalOptions="End" />-->
+
+            <!--  Main Login Elements  -->
+            <VerticalStackLayout
+                Grid.Row="2"
+                HorizontalOptions="Fill"
+                Spacing="20"
+                VerticalOptions="CenterAndExpand">
+
+                <Border
+                    Margin="0"
+                    Padding="0"
+                    BackgroundColor="{DynamicResource MainWrapperBackgroundColor}"
+                    HeightRequest="52"
+                    HorizontalOptions="FillAndExpand"
+                    Stroke="{DynamicResource EntryAndEditorsBorderColor}">
+                    <StackLayout
+                        Margin="16,2"
+                        HorizontalOptions="Fill"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+                        <Label
+                            FontFamily="MauiKitIcons"
+                            FontSize="22"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static views:MauiKitIcons.Account}"
+                            TextColor="{DynamicResource BaseIconColor}"
+                            VerticalOptions="CenterAndExpand" />
+
+                        <handlers:BorderlessEntry
+                            Margin="8,0"
+                            BackgroundColor="{DynamicResource MainWrapperBackgroundColor}"
+                            FontFamily="RegularFont"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Default"
+                            Placeholder="邮箱或手机号"
+                            PlaceholderColor="{DynamicResource BaseLightTextColor}" />
+                    </StackLayout>
+                </Border>
+
+                <Border
+                    Margin="0"
+                    Padding="0"
+                    BackgroundColor="{DynamicResource MainWrapperBackgroundColor}"
+                    HeightRequest="52"
+                    HorizontalOptions="FillAndExpand"
+                    Stroke="{DynamicResource EntryAndEditorsBorderColor}">
+                    <StackLayout
+                        Margin="16,2"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+                        <Label
+                            FontFamily="MauiKitIcons"
+                            FontSize="22"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static views:MauiKitIcons.Lock}"
+                            TextColor="{DynamicResource BaseIconColor}"
+                            VerticalOptions="CenterAndExpand" />
+
+                        <handlers:BorderlessEntry
+                            Margin="8,0"
+                            BackgroundColor="{DynamicResource MainWrapperBackgroundColor}"
+                            FontFamily="RegularFont"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Default"
+                            IsPassword="True"
+                            Placeholder="输入你的密码"
+                            PlaceholderColor="{DynamicResource BaseLightTextColor}" />
+                    </StackLayout>
+                </Border>
+
+                <!--<HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <CheckBox />
+                    <Label
+                        FontAttributes="Bold"
+                        Text="记住"
+                        TextColor="{DynamicResource BaseIconColor}"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>-->
+
+                <Button
+                    Margin="0,10,0,0"
+                    BorderWidth="0"
+                    Clicked="SigninButton_Clicked"
+                    FontFamily="MediumFont"
+                    FontSize="16"
+                    HeightRequest="50"
+                    Style="{StaticResource ButtonPrimaryStyle}"
+                    Text="登录" />
+
+                <!--<Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="忘记密码"
+                    TextColor="{DynamicResource PrimaryColor}"
+                    VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ForgotPassword_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>-->
+
+            </VerticalStackLayout>
+
+            <!--  Socials Login  -->
+            <!--<VerticalStackLayout Grid.Row="4" Spacing="20">
+                <Grid
+                    Padding="40,0"
+                    ColumnDefinitions="0.5*, Auto, 0.5*"
+                    ColumnSpacing="16">
+                    <Rectangle
+                        Fill="{DynamicResource BaseSeparatorColor}"
+                        HeightRequest="1"
+                        VerticalOptions="Center" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="其它账户"
+                        VerticalOptions="Center" />
+                    <Rectangle
+                        Grid.Column="2"
+                        Fill="{DynamicResource BaseSeparatorColor}"
+                        HeightRequest="1"
+                        VerticalOptions="Center" />
+                </Grid>
+
+                <StackLayout
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal"
+                    Spacing="25">
+                    <Border
+                        Padding="20,10"
+                        BackgroundColor="{DynamicResource MainWrapperBackgroundColor}"
+                        Stroke="{DynamicResource DefaultBorder}"
+                        StrokeShape="{RoundRectangle CornerRadius='8'}"
+                        StrokeThickness="1">
+                        <Image
+                            Aspect="AspectFit"
+                            HeightRequest="20"
+                            Source="facebook.png"
+                            VerticalOptions="Center" />
+                    </Border>
+
+                    <Border
+                        Padding="20,10"
+                        BackgroundColor="{DynamicResource MainWrapperBackgroundColor}"
+                        Stroke="{DynamicResource DefaultBorder}"
+                        StrokeShape="{RoundRectangle CornerRadius='8'}"
+                        StrokeThickness="1">
+
+                        <Image
+                            Aspect="AspectFit"
+                            HeightRequest="20"
+                            Source="google.png"
+                            VerticalOptions="Center" />
+                    </Border>
+
+                    <Border
+                        Padding="20,10"
+                        BackgroundColor="{DynamicResource MainWrapperBackgroundColor}"
+                        Stroke="{DynamicResource DefaultBorder}"
+                        StrokeShape="{RoundRectangle CornerRadius='8'}"
+                        StrokeThickness="1">
+                        <Image HeightRequest="22">
+                            <Image.Source>
+                                <FontImageSource
+                                    FontFamily="FaBrands"
+                                    Glyph="{x:Static views:FaBrands.Apple}"
+                                    Color="{DynamicResource BaseIconColor}" />
+                            </Image.Source>
+                        </Image>
+                    </Border>
+                </StackLayout>
+            </VerticalStackLayout>-->
+
+            <!--  Sign Up  -->
+            <!--<Label
+                Grid.Row="5"
+                Margin="15"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                VerticalOptions="End">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Signup_Tapped" />
+                </Label.GestureRecognizers>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontFamily="RegularFont"
+                            Text="{localization:Translate StringDontHaveAccount}"
+                            TextColor="{DynamicResource BaseLightTextColor}" />
+                        <Span Text="  " />
+                        <Span
+                            FontFamily="SemiBoldFont"
+                            FontSize="16"
+                            Text="{localization:Translate StringSignup}"
+                            TextColor="{DynamicResource PrimaryColor}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>-->
+        </Grid>
+    </Grid>
+
+</ContentPage>

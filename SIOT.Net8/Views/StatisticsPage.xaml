@@ -7,7 +7,6 @@
              xmlns:handlers="clr-namespace:SIOT.Handlers"
              xmlns:helpers="clr-namespace:SIOT.Helpers"
              xmlns:local="clr-namespace:SIOT"
-             xmlns:localization="clr-namespace:SIOT.Resources.Translations"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
              xmlns:lvcore="clr-namespace:LiveChartsCore;assembly=LiveChartsCore"
              xmlns:models="clr-namespace:SIOT.Models"

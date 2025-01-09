@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SIOT.Views.Templates.ContactItemTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <VerticalStackLayout Spacing="12">
+        <Grid ColumnDefinitions="50, *" ColumnSpacing="12">
+            <Border
+                Padding="0"
+                BackgroundColor="#EAEEF6"
+                HeightRequest="46"
+                HorizontalOptions="Center"
+                Stroke="Transparent"
+                StrokeShape="{RoundRectangle CornerRadius='23'}"
+                TranslationY="0"
+                VerticalOptions="Center"
+                WidthRequest="46">
+                <Image Aspect="AspectFill" Source="{Binding Avatar}" />
+            </Border>
+
+            <StackLayout Grid.Column="1">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    Text="{Binding Name}"
+                    TextColor="{DynamicResource BaseTextColor}" />
+                <Label
+                    FontSize="14"
+                    Text="{Binding PhoneNumber}"
+                    TextColor="{DynamicResource BaseLightTextColor}" />
+            </StackLayout>
+        </Grid>
+
+        <Rectangle
+            Margin="5,0"
+            Fill="{DynamicResource BaseSeparatorColor}"
+            HeightRequest="0.5" />
+    </VerticalStackLayout>
+</ContentView>

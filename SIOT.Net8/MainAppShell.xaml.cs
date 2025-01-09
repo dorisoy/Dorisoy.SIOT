@@ -11,42 +11,11 @@ public partial class MainAppShell : SimpleShell
 
         InitializeComponent();
 
-        //designLanguagesListPopover.Items = new List<DesignLanguageItem>
-        //{
-        //    new DesignLanguageItem("Cupertino", () =>
-        //    {
-        //        VisualStateManager.GoToState(this, "Cupertino");
-        //        designButton.HideAttachedPopover();
-        //    }),
-        //    new DesignLanguageItem("Material3", () =>
-        //    {
-        //        VisualStateManager.GoToState(this, "Material3");
-        //        designButton.HideAttachedPopover();
-        //    }),
-        //    new DesignLanguageItem("Fluent", () =>
-        //    {
-        //        VisualStateManager.GoToState(this, "Fluent");
-        //        designButton.HideAttachedPopover();
-        //    }),
-        //};
-
-        //VisualStateManager.GoToState(this, "Cupertino");
-        //designLanguagesListPopover.SelectedItem = designLanguagesListPopover.Items.FirstOrDefault();
-
         Routing.RegisterRoute(nameof(DemoStartPage), typeof(DemoStartPage));
         Routing.RegisterRoute(nameof(DemoWalkthroughPage), typeof(DemoWalkthroughPage));
         Routing.RegisterRoute(nameof(ImagePage), typeof(ImagePage));
-        Routing.RegisterRoute(nameof(MobileTopupPage), typeof(MobileTopupPage));
-        Routing.RegisterRoute(nameof(BillPaymentConfirmPage), typeof(BillPaymentConfirmPage));
-        Routing.RegisterRoute(nameof(AllServicePage), typeof(AllServicePage));
-        Routing.RegisterRoute(nameof(TransferMoneyPage), typeof(TransferMoneyPage));
-        Routing.RegisterRoute(nameof(RequestPaymentPage), typeof(RequestPaymentPage));
-        Routing.RegisterRoute(nameof(RequestPaymentDetailsPage), typeof(RequestPaymentDetailsPage));
-        ///Routing.RegisterRoute(nameof(PaymentConfirmPage), typeof(PaymentConfirmPage));
-        Routing.RegisterRoute(nameof(EReceiptPage), typeof(EReceiptPage));
+        Routing.RegisterRoute(nameof(DevicePage), typeof(DevicePage));
         Routing.RegisterRoute(nameof(ScanQrPayPage), typeof(ScanQrPayPage));
-        Routing.RegisterRoute(nameof(NotificationsPage), typeof(NotificationsPage));
-        Routing.RegisterRoute(nameof(PrivacyPolicyPage), typeof(PrivacyPolicyPage));
 
         Loaded += MainAppShellLoaded;
 
@@ -145,17 +114,12 @@ public partial class MainAppShell : SimpleShell
 
     private async void OnSettingsToolbarItemClicked(object sender, EventArgs e)
     {
-        //await PopupAction.DisplayPopup(new ThemeSettingsPopupPage());
         await Shell.Current.GoToAsync(nameof(ScanQrPayPage));
     }
 
     private void DesignLanguagesListPopoverItemSelected(object sender, ListPopoverItemSelectedEventArgs e)
     {
-        //if (e.Item is DesignLanguageItem designLanguageItem)
-        //{
-        //    designLanguagesListPopover.SelectedItem= designLanguageItem;
-        //    designLanguageItem.Action?.Invoke();
-        //}
+
     }
 
     private async void QrScan_Tapped(object sender, TappedEventArgs e)
